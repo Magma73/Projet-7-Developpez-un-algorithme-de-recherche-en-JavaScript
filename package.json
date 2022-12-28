@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./public/css/style.css"
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
+    "lint": "eslint --max-warnings=0 ."
   },
   "author": "Marine",
   "license": "ISC",
@@ -12,6 +13,7 @@
     "bootstrap": "^5.2.3"
   },
   "devDependencies": {
+    "eslint": "^8.30.0",
     "sass": "^1.57.1"
   }
 }
