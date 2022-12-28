@@ -1,2 +1,15 @@
+@import "./utils/animations";
+@import "./utils/variables";
+@import "./utils/mixins";
+@import "./utils/functions";
+@import "./base/base";
+@import "./components/buttons";
+@import "./layouts/header";
+@import "./layouts/form";
+@import "./layouts/nav";
+@import "./layouts/card";
+@import "./layouts/container";
+@import "./pages/home";
+
 // Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
