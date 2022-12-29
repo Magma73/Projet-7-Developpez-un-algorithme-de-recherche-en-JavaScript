@@ -19,49 +19,73 @@
          crossorigin="anonymous"
          referrerpolicy="no-referrer"
       />
-    </head>
+   </head>
    <body>
-      <header class="mt-2 pt-4 ms-4 me-1 px-4">
+      <header class="mt-sm-1 pt-sm-4 pb-sm-1 ms-sm-1">
          <nav class="navbar">
             <div class="container d-flex justify-content-center">
-               <a class="navbar-brand" href="./index.html">
+               <a class="navbar-brand m-auto" href="./index.html">
                   <img src="./assets/img/logo-les-petits-plats.png" class="img-fluid" alt="Les petits plats Home page" width="268" height="auto" />
                </a>
             </div>
          </nav>
       </header>
 
-      <main class="mx-3 px-4">
+      <main class="px-5">
          <!-- SECTION SEARCH -->
-         <section id="search">
+         <section id="search" class="px-5">
             <div class="container">
                <!-- <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                   </form> -->
 
-               <div class="input-group rounded">
-                  <input type="search" class="form-control rounded bg-secondary border-none" placeholder="Rechercher une recette" aria-label="Search" aria-describedby="search-addon" />
-                  <span class="input-group-text border-0" id="search-addon">
-                     <i class="fas fa-search"></i>
+               <div class="input-group rounded align-items-center">
+                  <input
+                     type="search"
+                     class="form-control rounded bg-secondary border-0 py-3 px-4"
+                     placeholder="Rechercher une recette"
+                     aria-label="Search"
+                     aria-describedby="search-addon"
+                     id="search-input"
+                  />
+                  <span class="input-group-text border-0 bg-secondary py-3 px-2" id="search-addon">
+                     <!-- <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                           id="Vector"
+                           d="M23.4167 20.6667H21.9683L21.455 20.1717C23.2517 18.0817 24.3333 15.3683 24.3333 12.4167C24.3333 5.835 18.9983 0.5 12.4167 0.5C5.835 0.5 0.5 5.835 0.5 12.4167C0.5 18.9983 5.835 24.3333 12.4167 24.3333C15.3683 24.3333 18.0817 23.2517 20.1717 21.455L20.6667 21.9683V23.4167L29.8333 32.565L32.565 29.8333L23.4167 20.6667ZM12.4167 20.6667C7.85167 20.6667 4.16667 16.9817 4.16667 12.4167C4.16667 7.85167 7.85167 4.16667 12.4167 4.16667C16.9817 4.16667 20.6667 7.85167 20.6667 12.4167C20.6667 16.9817 16.9817 20.6667 12.4167 20.6667Z"
+                           fill="black"
+                        />
+                     </svg> -->
+                     <i class="fas fa-search fs-3"></i>
                   </span>
                </div>
             </div>
          </section>
 
          <!-- SECTION TAGS -->
-         <section id="tags">
-            <div class="container"></div>
+         <section id="tags" class="px-5 py-4">
+            <div class="container d-flex">
+               <button type="button" class="btn btn-ingredient text-white me-4 fs-7">Coco <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.59 6L10 8.59L7.41 6L6 7.41L8.59 10L6 12.59L7.41 14L10 11.41L12.59 14L14 12.59L11.41 10L14 7.41L12.59 6ZM10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z" fill="white"/>
+                </svg></button>
+               <button type="button" class="btn btn-appareil text-white me-4 fs-7">Tag2 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.59 6L10 8.59L7.41 6L6 7.41L8.59 10L6 12.59L7.41 14L10 11.41L12.59 14L14 12.59L11.41 10L14 7.41L12.59 6ZM10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z" fill="white"/>
+                </svg></button>
+               <button type="button" class="btn btn-ustensil text-white me-4 fs-7">Tag3 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.59 6L10 8.59L7.41 6L6 7.41L8.59 10L6 12.59L7.41 14L10 11.41L12.59 14L14 12.59L11.41 10L14 7.41L12.59 6ZM10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z" fill="white"/>
+                </svg></button>
+            </div>
          </section>
 
          <!-- SECTION CARDS -->
-         <section id="cards">
+         <section id="cards" class="px-5">
             <div class="container">
                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
                   <div clss="col">
-                     <div class="card h-100">
-                        <img src="https://picsum.photos/300/150?random=1" class="card-img-top" alt="..." />
-                        <div class="card-header d-flex justify-content-between">
+                     <div class="card h-100 bg-secondary ">
+                        <img src="https://picsum.photos/seed/picsum/300/150?random=1" class="card-img-top" alt="..."/>
+                        <div class="card-header d-flex justify-content-between bg-secondary border-0">
                            <h5 class="card-title">Limonade de Coco</h5>
                            <p class="card-text"><i class="far fa-clock pe-2"></i>10 min</p>
                         </div>

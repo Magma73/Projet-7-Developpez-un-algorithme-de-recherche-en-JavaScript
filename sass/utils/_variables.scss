@@ -1,0 +1,24 @@
+/***COLORS****/
+// $color-primary: #901C1C;
+// $color-secondary: #D3573C;
+// $color-third: #757575;
+// $color-white: #FFFFFF;
+// $color-black: #000000;
+
+$ingredient:#3282F7;
+$appareil: #68D9A4;
+$ustensil: #ED6454;
+
+$secondary:#E7E7E7;
+
+.btn-ingredient {
+    background:$ingredient!important;
+}
+
+.btn-appareil {
+    background:$appareil!important;
+}
+
+.btn-ustensil {
+    background:$ustensil!important;
+}

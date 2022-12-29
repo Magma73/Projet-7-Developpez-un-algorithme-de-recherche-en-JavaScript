@@ -1,5 +1,27 @@
 @charset "UTF-8";
 /***COLORS****/
+.btn-ingredient {
+  background: #3282F7 !important;
+}
+
+.btn-appareil {
+  background: #68D9A4 !important;
+}
+
+.btn-ustensil {
+  background: #ED6454 !important;
+}
+
+#search-addon {
+  position: absolute;
+  right: 0px;
+}
+
+#search-input {
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 18px;
+}
+
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -7862,28 +7884,8 @@ textarea.form-control-lg {
   font-family: var(--bs-font-monospace) !important;
 }
 
-.fs-1 {
-  font-size: calc(1.375rem + 1.5vw) !important;
-}
-
-.fs-2 {
-  font-size: calc(1.325rem + 0.9vw) !important;
-}
-
-.fs-3 {
-  font-size: calc(1.3rem + 0.6vw) !important;
-}
-
-.fs-4 {
-  font-size: calc(1.275rem + 0.3vw) !important;
-}
-
-.fs-5 {
-  font-size: 1.25rem !important;
-}
-
-.fs-6 {
-  font-size: 1rem !important;
+.fs-7 {
+  font-size: 0.875rem !important;
 }
 
 .fst-italic {
@@ -10722,20 +10724,6 @@ textarea.form-control-lg {
   }
   .text-xxl-center {
     text-align: center !important;
-  }
-}
-@media (min-width: 1200px) {
-  .fs-1 {
-    font-size: 2.5rem !important;
-  }
-  .fs-2 {
-    font-size: 2rem !important;
-  }
-  .fs-3 {
-    font-size: 1.75rem !important;
-  }
-  .fs-4 {
-    font-size: 1.5rem !important;
   }
 }
 @media print {
