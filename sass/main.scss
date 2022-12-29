@@ -1,14 +1,15 @@
 @import "./utils/variables";
-@import "./utils/mixins";
-@import "./utils/functions";
-@import "./base/base";
-@import "./components/buttons";
-@import "./layout/header";
+// @import "./utils/mixins";
+// @import "./utils/functions";
+// @import "./base/base";
+// @import "./components/buttons";
+// @import "./layout/header";
+@import "./utils/utilities_custom";
 @import "./layout/form";
-@import "./layout/nav";
-@import "./layout/card";
-@import "./layout/container";
-@import "./pages/home";
+// @import "./layout/nav";
+// @import "./layout/card";
+// @import "./layout/container";
+// @import "./pages/home";
 
 // Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
