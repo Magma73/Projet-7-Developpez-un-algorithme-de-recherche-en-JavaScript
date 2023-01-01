@@ -14,7 +14,8 @@
 
 #search-addon {
   position: absolute;
-  right: 0px;
+  right: 8px;
+  z-index: 10;
 }
 
 #search-input {
