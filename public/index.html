@@ -58,7 +58,7 @@
          </section>
 
          <!-- SECTION TAGS -->
-         <section id="tags" class="py-4 px-sm-4 mx-sm-3 mt-sm-1">
+         <section id="tags" class="pt-4 pb-2 px-sm-4 mx-sm-3 mt-sm-2">
             <div class="container d-flex flex-column flex-sm-row">
                <button type="button" class="btn btn-ingredient text-white ps-3 pe-4 me-sm-5 mb-3 mb-sm-0 fs-7 d-flex justify-content-between align-items-center">
                   Coco
@@ -96,8 +96,96 @@
             </div>
          </section>
 
+         <!-- SECTION DROPDOWNS -->
+         <section id="dropdowns" class="py-1 px-sm-4 mx-sm-3 mt-sm-1 mb-3">
+            <!-- <div class="container d-flex flex-column flex-sm-row">
+               <div class="dropdown me-sm-5 ">
+                  <button class="btn btn-ingredient text-white dropdown-toggle p-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">Ingrédients</button>
+                  <ul class="dropdown-menu d-flex flex-wrap">
+                     <li><a class="dropdown-item" href="#">Action</a></li>
+                     <li><a class="dropdown-item" href="#">Another action</a></li>
+                     <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+               </div> -->
+
+            <div class="container">
+               <div class="accordion accordion-flush d-flex flex-column flex-sm-row" id="accordionFlushExample">
+                  <div class="accordion-item me-sm-3">
+                     <h2 class="accordion-header" id="flush-headingOne">
+                        <button
+                           class="accordion-button collapsed btn-ingredient text-white rounded fw-semibold py-4 d-flex justify-content-between"
+                           type="button"
+                           data-bs-toggle="collapse"
+                           data-bs-target="#flush-collapseOne"
+                           aria-expanded="false"
+                           aria-controls="flush-collapseOne"
+                        >
+                           Ingrédients
+                        </button>
+                     </h2>
+                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                           <ul class="list-inline">
+                              <li><a class="item" href="#">Action</a></li>
+                              <li><a class="item" href="#">Another action</a></li>
+                              <li><a class="item" href="#">Something else here</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-item me-sm-3">
+                     <h2 class="accordion-header" id="flush-headingTwo">
+                        <button
+                           class="accordion-button collapsed btn-appareil text-white rounded fw-semibold px-4 py-4 d-flex justify-content-between"
+                           type="button"
+                           data-bs-toggle="collapse"
+                           data-bs-target="#flush-collapseTwo"
+                           aria-expanded="false"
+                           aria-controls="flush-collapseTwo"
+                        >
+                           Appareils
+                        </button>
+                     </h2>
+                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <ul class="list-group list-group-horizontal-sm">
+                                <li class="list-group-item">An item</li>
+                                <li class="list-group-item">A second item</li>
+                                <li class="list-group-item">A third item</li>
+                              </ul>
+
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-item">
+                     <h2 class="accordion-header" id="flush-headingThree">
+                        <button
+                           class="accordion-button collapsed btn-ustensil text-white rounded fw-semibold px-4 py-4 d-flex justify-content-between"
+                           type="button"
+                           data-bs-toggle="collapse"
+                           data-bs-target="#flush-collapseThree"
+                           aria-expanded="false"
+                           aria-controls="flush-collapseThree"
+                        >
+                           Ustensiles
+                        </button>
+                     </h2>
+                     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                           Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more
+                           exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a
+                           real-world application.
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- </div> -->
+         </section>
+
          <!-- SECTION CARDS -->
-         <section id="cards" class="px-5">
+         <section id="cards" class="px-sm-4 mx-sm-3 ">
             <div class="container">
                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
                   <div clss="col">
@@ -134,4 +222,11 @@
          </section>
       </main>
    </body>
+
+   <!-- Bootstrap JS bundle -->
+   <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+   ></script>
 </html>
