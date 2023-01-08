@@ -1,1 +1,35 @@
-
+.button {
+   &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 23px 20px;
+      width: 170px;
+      height: 69px;
+      padding: 23px 7px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: #ffffff;
+      cursor: pointer;
+      letter-spacing: 0.1rem;
+      &--ingredient {
+         background: $ingredient;
+      }
+      &--appareil {
+         background: $appareil;
+      }
+      &--ustensil {
+         background: $ustensil;
+      }
+   }
+   &__hidden {
+      --appareil {
+         background: $appareil;
+      }
+      --ustensil {
+         background: $ustensil;
+      }
+   }
+}

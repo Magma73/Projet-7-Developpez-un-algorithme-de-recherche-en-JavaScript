@@ -1,0 +1,37 @@
+.wrapper{
+    display:flex;
+    align-items:center;
+    &__select{
+        &--ingredient.active > .wrapper__hidden--ingredient {
+            display: block;
+        }
+        &--appareil.active .wrapper__hidden--appareil {
+            display: block;
+          }
+    }
+    &__hidden{
+        display:flex;
+        flex-direction:column;
+        width: 667px;
+        position: absolute;
+        top: 8px;
+        color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+        &--ingredient{
+            display:none;
+            left: 8px;
+            background: $ingredient;
+        }
+        &--appareil{
+            display:none;
+            left: 180px;
+            background: $appareil;
+        }
+        &--ustensil{
+            display:none;
+            left: 350px;
+            background: $ustensil;
+        }
+    }
+}
