@@ -15,6 +15,51 @@
   font-size: 18px !important;
 }
 
+.button__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 23px 20px;
+  width: 170px;
+  height: 69px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #ffffff;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+}
+.button__wrapper--ingredient {
+  background: #3282F7;
+}
+.button__wrapper--appareil {
+  background: #68D9A4;
+}
+.button__wrapper--ustensil {
+  background: #ED6454;
+}
+.button__hidden {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 24px 0 19px;
+  /* text-align: left; */
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 5px 5px 0 0;
+}
+.button__hidden--ingredient {
+  background: #3282F7;
+}
+.button__hidden--appareil {
+  background: #68D9A4;
+}
+.button__hidden--ustensil {
+  background: #ED6454;
+}
+
 .accordion {
   --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")!important;
   --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")!important;
@@ -41,11 +86,21 @@
 .wrapper {
   display: flex;
   align-items: center;
+  position: relative;
 }
 .wrapper__select--ingredient.active > .wrapper__hidden--ingredient {
   display: block;
 }
+.wrapper__select--ingredient.active {
+  margin-right: 514px;
+}
 .wrapper__select--appareil.active .wrapper__hidden--appareil {
+  display: block;
+}
+.wrapper__select--appareil.active {
+  margin-right: 514px;
+}
+.wrapper__select--ustensil.active .wrapper__hidden--ustensil {
   display: block;
 }
 .wrapper__hidden {
@@ -53,25 +108,46 @@
   flex-direction: column;
   width: 667px;
   position: absolute;
-  top: 8px;
+  top: 0px;
   color: #ffffff;
   border-radius: 5px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 10;
 }
 .wrapper__hidden--ingredient {
   display: none;
-  left: 8px;
+  left: 0px;
   background: #3282F7;
 }
 .wrapper__hidden--appareil {
   display: none;
-  left: 180px;
+  left: 0px;
   background: #68D9A4;
 }
 .wrapper__hidden--ustensil {
   display: none;
-  left: 350px;
+  left: 0px;
   background: #ED6454;
+}
+.wrapper__option {
+  width: 169px;
+  /*   height: 69px; */
+  padding: 5px 19px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 400;
+  font-size: 1rem;
+}
+.wrapper__list {
+  padding: 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.125rem;
 }
 
 /*!
