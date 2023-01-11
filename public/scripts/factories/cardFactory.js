@@ -20,7 +20,7 @@ function recetteCardFactory(datas) {
       const image = document.createElement("img");
       image.className = "card-img-top";
       image.setAttribute("src", "https://source.unsplash.com/random/300x150?recette");
-      // image.setAttribute("tabindex", "0");
+      image.setAttribute("alt", name);
 
       // Création card header
       const cardHeader = document.createElement("div");
@@ -28,7 +28,7 @@ function recetteCardFactory(datas) {
 
       // Création card title
       const cardTitle = document.createElement("h5");
-      cardTitle.className = "card-title m-0";
+      cardTitle.className = "card-title m-0 w-75";
       cardTitle.textContent = name;
 
       // Création icon clock
@@ -37,7 +37,7 @@ function recetteCardFactory(datas) {
 
       // Création card text
       const cardText = document.createElement("p");
-      cardText.className = "card-text d-flex flex-row-reverse align-items-center";
+      cardText.className = "card-text d-flex flex-row-reverse align-items-center w-25";
       cardText.textContent = time + " min";
 
       // Création card body
