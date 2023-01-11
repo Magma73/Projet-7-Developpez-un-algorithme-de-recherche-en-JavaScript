@@ -23,7 +23,7 @@
 
    </head>
    <body>
-      <header class="mt-sm-1 pt-sm-4 pb-sm-1 ms-sm-1">
+      <header class="mt-sm-1 pt-sm-4 pb-sm-1 mr-sm-1">
          <nav class="navbar">
             <div class="container d-flex justify-content-center">
                <a class="navbar-brand m-auto" href="./index.html">
@@ -40,7 +40,7 @@
                <div class="input-group rounded align-items-center">
                   <input
                      type="search"
-                     class="form-control rounded bg-secondary border-0 pt-4 pb-3 px-4"
+                     class="form-control rounded bg-secondary border-0 pt-4 pb-4 px-4"
                      placeholder="Rechercher une recette"
                      aria-label="Search"
                      aria-describedby="search-addon"
@@ -214,10 +214,10 @@
          <!-- SECTION CARDS -->
          <section id="cards" class="px-sm-4 mx-sm-3">
             <div class="container">
-               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+               <div class="cardsCols row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
                   <div class="col">
                      <article class="card h-100 bg-secondary">
-                        <img src="https://source.unsplash.com/random/300x150?coco" class="card-img-top" alt="..." />
+                        <img src="https://source.unsplash.com/random/300x150?coco" class="card-img-top" alt="...">
                         <div class="card-header d-flex justify-content-between bg-secondary border-0">
                            <h5 class="card-title">Limonade de Coco</h5>
                            <p class="card-text"><i class="far fa-clock pe-2"></i>10 min</p>
@@ -245,9 +245,9 @@
                      </article>
                   </div>
 
-                  <div class="col">
+                  <!-- <div class="col">
                      <div class="card h-100 bg-secondary">
-                        <img src="https://picsum.photos/seed/picsum/300/150?random=1" class="card-img-top" alt="..." />
+                        <img src="https://picsum.photos/seed/picsum/300/150?random=1" class="card-img-top" alt="...">
                         <div class="card-header d-flex justify-content-between bg-secondary border-0">
                            <h5 class="card-title">Limonade de Coco</h5>
                            <p class="card-text"><i class="far fa-clock pe-2"></i>10 min</p>
@@ -273,11 +273,11 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
 
-                  <div class="col">
+                  <!-- <div class="col">
                      <div class="card h-100 bg-secondary">
-                        <img src="https://picsum.photos/seed/picsum/300/150?random=1" class="card-img-top" alt="..." />
+                        <img src="https://picsum.photos/seed/picsum/300/150?random=1" class="card-img-top" alt="...">
                         <div class="card-header d-flex justify-content-between bg-secondary border-0">
                            <h5 class="card-title">Limonade de Coco</h5>
                            <p class="card-text"><i class="far fa-clock pe-2"></i>10 min</p>
@@ -303,9 +303,9 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
 
-                  <div class="col">
+                  <!-- <div class="col">
                      <div class="card h-100 bg-secondary">
                         <img src="https://picsum.photos/seed/picsum/300/150?random=1" class="card-img-top" alt="..." />
                         <div class="card-header d-flex justify-content-between bg-secondary border-0">
@@ -333,9 +333,9 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
 
-                  <div class="col">
+                  <!-- <div class="col">
                      <div class="card h-100 bg-secondary">
                         <img src="https://picsum.photos/seed/picsum/300/150?random=1" class="card-img-top" alt="..." />
                         <div class="card-header d-flex justify-content-between bg-secondary border-0">
@@ -363,7 +363,7 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
                </div>
             </div>
          </section>
@@ -380,6 +380,9 @@
    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script> -->
 
+      <script src="../data/recipes.js "></script>
       <script src="./scripts/utils/wrapper.js"></script>
-      <!-- <script src="./scripts/index.js"></script> -->
+      <script src="./scripts/factories/cardFactory.js"></script>
+      <script src="./scripts/pages/index.js"></script>
+      <script src="./scripts/pages/test.js"></script>
 </html>
