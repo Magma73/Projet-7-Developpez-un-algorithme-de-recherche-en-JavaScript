@@ -10,12 +10,22 @@ async function displayData(recipes) {
     });
  }
 
-//  async function init() {
-//     // Récupère les datas des recettes
-//     const { recipes } = await recipes;
-//     displayData(recipes);
-//  }
+ async function displayWrapperIngredient(recipes) {
+    const wrapperHiddenIngredient = document.querySelector(".wrapper__hidden--ingredient");
 
-//  init();
+    recipes.forEach((recipe) => {
+       const ingredientWrapperModel = wrappersFactory(recipe);
+       const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
+       wrapperHiddenIngredient.appendChild(ingredientWrapperCardDOM);
+    });
+ }
 
- displayData(recipes);
+
+ async function init() {
+    // Récupère les datas des recettes
+    displayData(recipes);
+    displayWrapperIngredient(recipes);
+ }
+
+ init();
+
