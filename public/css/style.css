@@ -137,6 +137,7 @@
   list-style: none;
   font-weight: 400;
   font-size: 1rem;
+  text-transform: capitalize;
 }
 .wrapper__list {
   padding: 0;

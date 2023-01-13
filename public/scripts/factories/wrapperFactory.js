@@ -1,70 +1,84 @@
 function wrappersFactory(datas) {
    const { ingredients, appliance, ustensils } = datas;
 
-   //    console.log(ingredients);
+   // console.log(appliance);
+   //    let arrayIngredients = [];
+   //    recipes.forEach(recipe => {
+   //        recipe.ingredients.forEach(ingredient => {
+   //         arrayIngredients.push(ingredient.ingredient);
+   //        });
+   //    });
 
-   // var arr = [1,2,3,4,1,2,3,1,2,3]
+   //    console.log(arrayIngredients);
+      // console.log(ustensils);
 
-   // const uniqueIngredient = [...new Set(ingredients)];
+   // const arrayIngredients = recipes.map(recipe => recipe.ingredients).flat();
+   // const uniqueIngredients = arrayIngredients.filter((ingredient, index) => arrayIngredients.findIndex(i => i.ingredient === ingredient.ingredient) === index);
 
-   // console.log(uniqueIngredient);
+   const arrayIngredients = recipes.map((recipe) => recipe.ingredients).flat();
+   // const arrayIngredients = recipes.map(recipe => recipe.ingredients);
+   const uniqueIngredients = arrayIngredients.filter((ingredient, index) => arrayIngredients.findIndex((i) => i.ingredient === ingredient.ingredient) === index);
+   // const uniqueIngredients = arrayIngredients.filter((ingredient, index) => console.log(ingredient.flat()));
 
-   const wrapperListIngredient = document.querySelector(".wrapper__list");
+   // console.log(arrayIngredients);
+   // console.log(uniqueIngredients);
 
-   // const picture = `./assets/photographers/Photographers ID Photos/${portrait}`;
+   const arrayAppareils = recipes.map((recipe) => recipe.appliance).flat();
+   const uniqueAppareils = Array.from(new Set(arrayAppareils));
 
-   // FACTORY DES CARTES RECETTES
+   // console.log(arrayAppareils);
+   // console.log(uniqueAppareils);
+
+   const arrayUstensils= recipes.map((recipe) => recipe.ustensils).flat();
+   const uniqueUstensils = Array.from(new Set(arrayUstensils));
+
+   // console.log(arrayUstensils);
+   console.log(uniqueUstensils);
+
+   const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
+   const wrapperListAppareil = document.querySelector(".wrapper__list--appareil");
+   const wrapperListUstensil = document.querySelector(".wrapper__list--ustensil");
+
+   // FACTORY DES BOUTONS DE FILTRE
 
    function getIngredientWrapperDOM() {
-      // Création des éléments wrapper option (li)
-
-      // let nbIngredient = ingredients.length;
-      // console.log(nbIngredient);
-      // console.log(ingredients);
-      let arr = [];
-
-      ingredients.forEach((ingredient) => {
-         // const nbIngredient = ingredients.ingredient;
-
-         arr.push(ingredient.ingredient);
-
-         console.log(arr);
-         // const uniqueIngredient = [...new Set(arr)];
-
-         // console.log(uniqueIngredient);
-         let nbIngredient = +1;
-         // let total =+ nbIngredient;
-         // console.log(total);
-
-         // console.log(ingredient.length);
-
-         // items.forEach(function(item){
-         //     copie.push(item);
-         //   });
-
+      // Création des éléments wrapper option ingrédients (li)
+      uniqueIngredients.forEach((ingredient) => {
          const wrapperOption = document.createElement("li");
-
          wrapperOption.className = "wrapper__option wrapper__option";
          wrapperOption.textContent = ingredient.ingredient;
          wrapperOption.setAttribute("id", "mi");
-
          wrapperListIngredient.appendChild(wrapperOption);
       });
 
-      //    // Ajout icon arrow dans span
-      //    iconArrowDown.appendChild(pathArrowDown);
-      //    spanIconArrowDown.appendChild(iconArrowDown);
-
-      //    // Ajout span dans button
-      //    buttonHiddenIngredient.appendChild(spanIconArrowDown);
-
-      //    // Ajout des éléments dans wrapper hidden ingredient
-      //    divWrapperHiddenIngredient.appendChild(buttonHiddenIngredient);
-      //    divWrapperHiddenIngredient.appendChild(wrapperUl);
-
       return wrapperListIngredient;
    }
-   // return { name,  id, city, country, tagline, price, picture, getUserCardDOM }
-   // return { ingredients, appliance, ustensils, getIngredientWrapperDOM };
-   return { ingredients, appliance, ustensils, getIngredientWrapperDOM };
+
+   function getAppareilWrapperDOM() {
+      // Création des éléments wrapper option appareils (li)
+      uniqueAppareils.forEach((appareil) => {
+         const wrapperOption = document.createElement("li");
+         wrapperOption.className = "wrapper__option wrapper__option";
+         wrapperOption.textContent = appareil;
+         wrapperOption.setAttribute("id", "ma");
+         wrapperListAppareil.appendChild(wrapperOption);
+      });
+
+      return wrapperListAppareil;
+   }
+
+   function getUstensilWrapperDOM() {
+      // Création des éléments wrapper option ustensils (li)
+      uniqueUstensils.forEach((ustensil) => {
+         const wrapperOption = document.createElement("li");
+         wrapperOption.className = "wrapper__option wrapper__option";
+         wrapperOption.textContent = ustensil;
+         wrapperOption.setAttribute("id", "mu");
+         wrapperListUstensil.appendChild(wrapperOption);
+      });
+
+      return wrapperListUstensil;
+   }
+
+   return { ingredients, appliance, ustensils, getIngredientWrapperDOM, getAppareilWrapperDOM, getUstensilWrapperDOM };
 }
