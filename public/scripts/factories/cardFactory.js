@@ -77,41 +77,8 @@ function recetteCardFactory(datas) {
       descriptionBody.setAttribute("style", "font-size: 12px");
 
       // Création des unités
-      // if (unit !== undefined) {
-      //     const unit = ingredient.unit;
-      //     const video = document.createElement("video");
-      //     video.setAttribute("src", mediaVideo);
-      //     video.setAttribute("alt", title);
-      //     video.setAttribute("aria-label", title);
-      //     video.controls = false;
-      //     video.className = "card__media--video";
-      //     mediaElement.appendChild(video);
-      //  } else if (image !== undefined) {
-      //     const img = document.createElement("img");
-      //     img.setAttribute("src", mediaPhoto);
-      //     img.setAttribute("alt", title);
-      //     img.className = "card__media--img";
-      //     mediaElement.appendChild(img);
-      //  } else {
-      //     console.log("Pas d'images ni de vidéos trouvées");
-      //  }
-
       ingredients.forEach((ingredient) => {
-         // let ingredient = ingredient.ingredient;
-         //  console.log(ingredient.ingredient);
          const elementListBody = document.createElement("li");
-         //  elementListBody.textContent = ingredient.ingredient + " : " + ingredient.quantity + " ";
-         //  const unit = ingredient.unit;
-         //  if (unit === undefined) {
-         //     const unity = " ";
-         //     console.log(unity);
-         //     elementListBody.appendChild(unity);
-         //  } else if (unit !== undefined) {
-         //     const unity = unit;
-         //     // unit ;
-         //     console.log(unity);
-         //     elementListBody.appendChild(unity);
-         //  }
 
          // Condition pour afficher ou non les quantités et unités
          if (ingredient.quantity == undefined) {
@@ -119,14 +86,12 @@ function recetteCardFactory(datas) {
          } else if (ingredient.unit == undefined) {
             elementListBody.textContent = ingredient.ingredient + ": " + ingredient.quantity;
          } else if (ingredient.unit == "grammes") {
-            elementListBody.textContent = ingredient.ingredient + ": " + ingredient.quantity + "g";
+            elementListBody.textContent = ingredient.ingredient + ": " + ingredient.quantity + " g";
          } else {
-            elementListBody.textContent = ingredient.ingredient + ": " + ingredient.quantity + ingredient.unit;
+            elementListBody.textContent = ingredient.ingredient + ": " + ingredient.quantity + " " + ingredient.unit;
          }
 
          listBody.appendChild(elementListBody);
-         console.log(elementListBody);
-         //  let quantity = ingredient.quantity;
       });
 
       // Ajout icon Clock dans cardText
@@ -137,7 +102,6 @@ function recetteCardFactory(datas) {
       cardHeader.appendChild(cardText);
 
       // Ajout des éléments dans list body
-      //   listBody.appendChild(elementListBody);
       colBody.appendChild(listBody);
 
       // Ajout des éléments dans description body
