@@ -1,5 +1,4 @@
-// console.log(recipes);
-
+// Fonction de création des recettes
 async function displayData(recipes) {
    const cardColsSection = document.querySelector(".cardsCols");
 
@@ -10,45 +9,33 @@ async function displayData(recipes) {
    });
 }
 
-async function displayWrappers(recipes) {
+// Fonction de création du bouton ingrédient
+async function displayButtonIngredient(recipes) {
    const wrapperHiddenIngredient = document.querySelector(".wrapper__hidden--ingredient");
-   const ingredientWrapperModel = wrappersFactory(recipes);
+   const ingredientWrapperModel = buttonIngredientFactory(recipes);
    const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
    wrapperHiddenIngredient.appendChild(ingredientWrapperCardDOM);
-
-
-
-   const wrapperHiddenAppareil= document.querySelector(".wrapper__hidden--appareil");
-   const appareilWrapperModel = wrappersFactory(recipes);
+}
+// Fonction de création du bouton appareil
+async function displayButtonAppliance(recipes) {
+   const wrapperHiddenAppareil = document.querySelector(".wrapper__hidden--appareil");
+   const appareilWrapperModel = buttonApplianceFactory(recipes);
    const appareilWrapperCardDOM = appareilWrapperModel.getAppareilWrapperDOM();
    wrapperHiddenAppareil.appendChild(appareilWrapperCardDOM);
-
-
-   const wrapperHiddenUstensil= document.querySelector(".wrapper__hidden--ustensil");
-   const ustensilWrapperModel = wrappersFactory(recipes);
+}
+// Fonction de création du bouton ustensile
+async function displayButtonUstensil(recipes) {
+   const wrapperHiddenUstensil = document.querySelector(".wrapper__hidden--ustensil");
+   const ustensilWrapperModel = buttonUstensilFactory(recipes);
    const ustensilWrapperCardDOM = ustensilWrapperModel.getUstensilWrapperDOM();
    wrapperHiddenUstensil.appendChild(ustensilWrapperCardDOM);
-
-
-
-   //  uniqueIngredients.forEach((ingredient) => {
-   //       const ingredientWrapperModel = wrappersFactory(ingredient);
-   //      const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
-   //      wrapperHiddenIngredient.appendChild(ingredientWrapperCardDOM);
-
-   //   });
-
-   // recipes.forEach((recipe) => {
-   //    const ingredientWrapperModel = wrappersFactory(recipe);
-   //    const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
-   //    wrapperHiddenIngredient.appendChild(ingredientWrapperCardDOM);
-   // });
 }
-
 async function init() {
    // Récupère les datas des recettes
    displayData(recipes);
-   displayWrappers(recipes);
+   displayButtonIngredient(recipes);
+   displayButtonAppliance(recipes);
+   displayButtonUstensil(recipes);
 }
 
 init();
