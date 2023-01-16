@@ -48,6 +48,7 @@ function recetteCardFactory(datas) {
       // Création container card body
       const containerBody = document.createElement("div");
       containerBody.className = "container p-0";
+      containerBody.setAttribute("style", "overflow: hidden;text-overflow: ellipsis;");
 
       // Création row card body
       const rowBody = document.createElement("div");
