@@ -11,18 +11,22 @@ function buttonApplianceFactory(datas) {
 
    // FACTORY DE LA LISTE DES APPAREILS
 
+   // Initialisation d'un compteur afin de créer les id
+   let currentOption = 0;
+
    function getAppareilWrapperDOM() {
       // Création des éléments wrapper option appareils (li)
       uniqueAppareils.forEach((appareil) => {
          const wrapperOption = document.createElement("li");
-         wrapperOption.className = "wrapper__option wrapper__option";
+         wrapperOption.className = "wrapper__option";
+         currentOption++;
          wrapperOption.textContent = appareil;
-         wrapperOption.setAttribute("id", "ma");
+         wrapperOption.setAttribute("id", "ma" + currentOption);
          wrapperListAppareil.appendChild(wrapperOption);
       });
 
       return wrapperListAppareil;
    }
 
-   return { appliance, getAppareilWrapperDOM } ;
+   return { appliance, getAppareilWrapperDOM };
 }
