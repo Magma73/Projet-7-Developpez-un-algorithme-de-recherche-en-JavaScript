@@ -75,7 +75,7 @@ const recipes = [
         "ingredients": [
             {
                 "ingredient": "Poulet",
-                "quantity" : 1          
+                "quantity" : 1
             },
             {
                 "ingredient": "Lait de coco",
@@ -83,7 +83,7 @@ const recipes = [
                 "unit" : "ml"
             },
             {
-                "ingredient": "Coulis de tomate",
+                "ingredient": "Coulis de tomates",
                 "quantity" : 25,
                 "unit" : "cl"
             },
@@ -102,7 +102,7 @@ const recipes = [
             }
         ],
         "time": 80,
-        "description": "Découper le poulet en morceaux, les faire dorer dans une cocotte avec de l'huile d'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz",
+        "description": "Découper le poulet en morceaux, les faire dorer dans une cocotte avec de l'huile d'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l'eau. Au bout de 30 minutes, ajouter le coulis de tomates, le lait de coco ainsi que le poivron et l'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz",
         "appliance": "Cocotte",
         "ustensils": ["couteau"]
     },{
@@ -150,7 +150,7 @@ const recipes = [
         "ingredients":[
            {
                "ingredient": "Pâte feuilletée",
-               "quantity": 1 
+               "quantity": 1
            },
            {
                "ingredient": "Thon en miettes",
@@ -228,7 +228,7 @@ const recipes = [
             {
                 "ingredient": "Pâte sablée",
                 "quantity": 1
-            }, 
+            },
             {
                 "ingredient": "Chocolat au lait",
                 "quantity": 300,
@@ -288,7 +288,7 @@ const recipes = [
                 "unit": "grammes"
            }
 
-        ], 
+        ],
         "time": 60,
         "description": "Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeufs et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d'avoir quelque chose d'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.",
         "appliance": "Four",
@@ -316,13 +316,13 @@ const recipes = [
             },
             {
                 "ingredient": "Huile d'olive"
-            }, 
+            },
             {
-                "ingredient": "Basilic"    
+                "ingredient": "Basilic"
             }
         ],
         "time": 15,
-        "description":"Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olives à votre gout.",
+        "description":"Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olive à votre gout.",
         "appliance":"Saladier",
         "ustensils":["cuillère en bois", "couteau"]
     },
@@ -379,7 +379,7 @@ const recipes = [
                 "ingredient": "Jambon de parme",
                 "quantity": 4,
                 "unit": "tranches"
-            }, 
+            },
             {
                 "ingredient": "Pommes",
                 "quantity": 1
@@ -569,7 +569,7 @@ const recipes = [
                 "unit":"tiges"
             },
             {
-                "ingredient": "huile d'olives",
+                "ingredient": "huile d'olive",
                 "quantity": 2,
                 "unit": "cuillère à soupe"
             }
@@ -642,7 +642,7 @@ const recipes = [
         "servings": 4,
         "ingredients": [
             {
-                "ingredient": "Kiwi",
+                "ingredient": "Kiwis",
                 "quantity": 4
             },
             {
@@ -720,7 +720,7 @@ const recipes = [
                 "quantity": 2
             },
             {
-                "ingredient": "Coulis de tomate",
+                "ingredient": "Coulis de tomates",
                 "quantity": 300,
                 "unit":"grammes"
             },
@@ -908,7 +908,7 @@ const recipes = [
                 "quantity": 1
             },
             {
-                "ingredient": "Huile d'olives"
+                "ingredient": "Huile d'olive"
             },
             {
                 "ingredient": "Oignon",
@@ -1069,7 +1069,7 @@ const recipes = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Petits poids",
+                "ingredient": "Petits pois",
                 "quantity": 100,
                 "unit":"grammes"
             },
@@ -1281,7 +1281,7 @@ const recipes = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Huile d'olives",
+                "ingredient": "Huile d'olive",
                 "quantity": 25,
                 "unit": "cl"
             },
@@ -1299,7 +1299,7 @@ const recipes = [
                 "quantity": 50,
                 "unit": "grammes"
             }
-            
+
         ],
         "time": 60,
         "description":"Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage râpé",
@@ -1420,7 +1420,7 @@ const recipes = [
         "description":"Séparer les blancs d'oeufs. Faire fondre le chocolat au bain marie. Ajouter les jaunes et le sucre au chocolat hors du feu. Battre les blancs en neige. Ajouter les blancs au mélange de chocolat. Mélangez délicatement avec une spatule. Servir dans un plat ou dans des verres. Mettre au frais",
         "appliance": "Casserole",
         "ustensils":["fouet", "spatule", "verres"]
-    }, 
+    },
     {
         "id": 42,
         "name": "Charlotte au poires",
@@ -1482,7 +1482,7 @@ const recipes = [
         "description":"Préchauffez le fours à 200°. Étaler la pate. La mettre dans un moule. Battre les oeufs avec le sucre. Ajouter le jus de citron et le beurre. Verser le tout sur la pate. Au four 30 minutes. Bon appetit ",
         "appliance": "Four",
         "ustensils":["rouleau à patisserie", "moule à tarte", "presse citron"]
-    }, 
+    },
     {
         "id": 44,
         "name": "Crème dessert au chocolat",
