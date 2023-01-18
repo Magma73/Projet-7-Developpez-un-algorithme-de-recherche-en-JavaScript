@@ -12,7 +12,7 @@ function buttonUstensilFactory(datas) {
    const arrayUstensils = arrayValueUstensils.join(",").split(","); // Je supprime les virgules pour que chaque ustensile soit un élément du tableau : Array(122) [ "cuillère à Soupe", "verres", "presse citron", "presse citron", "couteau", "saladier", "passoire", "moule à tarte", "râpe à fromage", "couteau", … ]
    const arrayUstensilsLowerCase = arrayUstensils.map((recipe) => recipe.toLowerCase()); // Je mets tout en minuscules
    const uniqueUstensils = Array.from(new Set(arrayUstensilsLowerCase)); // Je supprime les doublons : Array(25) [ "cuillère à soupe", "verres", "presse citron", "couteau", "saladier", "passoire", "moule à tarte", "râpe à fromage", "fourchette", "moule à tartelettes (6)", … ]
-   const uniqueUstensilsSort = uniqueUstensils.sort(); // Je trie par ordre alphabétique
+   const uniqueUstensilsSort = uniqueUstensils.sort((a, b) => a.localeCompare(b, 'fr')); // Je trie par ordre alphabétique
 
    const wrapperListUstensil = document.querySelector(".wrapper__list--ustensil");
 

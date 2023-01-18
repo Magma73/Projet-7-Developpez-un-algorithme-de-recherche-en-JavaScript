@@ -5,7 +5,7 @@ function buttonIngredientFactory(datas) {
    const arrayIngredients = recipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
    const arrayIngredientsLowerCase = arrayIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
    const uniqueIngredients = Array.from(new Set(arrayIngredientsLowerCase)); // Je supprime les doublons
-   const uniqueIngredientsSort = uniqueIngredients.sort(); // Je trie par ordre alphabétique
+   const uniqueIngredientsSort = uniqueIngredients.sort((a, b) => a.localeCompare(b, 'fr')); // Je trie par ordre alphabétique
 
    const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
 
@@ -16,7 +16,7 @@ function buttonIngredientFactory(datas) {
 
    function getIngredientWrapperDOM() {
       // Création des éléments wrapper option ingrédients (li)
-      uniqueIngredients.forEach((ingredient) => {
+      uniqueIngredientsSort.forEach((ingredient) => {
          const wrapperOption = document.createElement("li");
          wrapperOption.className = "wrapper__option";
          currentOption++;
