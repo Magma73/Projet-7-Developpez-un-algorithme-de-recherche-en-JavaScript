@@ -2,10 +2,9 @@ function buttonApplianceFactory(datas) {
    const { appliance } = datas;
 
    // Je modifie le tableau d'objets appareil afin de supprimer les doublons
-   const arrayAppareils = recipes.map((recipe) => recipe.appliance).flat(); // Je concatène les objets
-   const arrayAppareilsLowerCase = arrayAppareils.map((recipe) => recipe.toLowerCase()); // Je mets tout en minuscules
-   const uniqueAppareils = Array.from(new Set(arrayAppareilsLowerCase)); // Je supprime les doublons
-   const uniqueAppareilsSort = uniqueAppareils.sort(); // Je trie par ordre alphabétique
+   const arrayOfArraysAppliances = recipes.map((recipe) => recipe.appliance.toLowerCase()); // Je crée un nouveau tableau avec les appareils et je mets tout en miniscules : Array(50) [ "Blender", "Saladier", "Cocotte", "Cuiseur de riz", "Four", "Four", "Four", "Four", "Saladier", "Four", … ]
+   const uniqueAppliances = Array.from(new Set(arrayOfArraysAppliances)); // Je supprime les doublons : Array(11) [ "blender", "saladier", "cocotte", "cuiseur de riz", "four", "casserole", "poêle à crêpe", "sauteuse", "mixer", "poêle", … ]
+   const uniqueAppliancesSort = uniqueAppliances.sort(); // Je trie par ordre alphabétique
 
    const wrapperListAppareil = document.querySelector(".wrapper__list--appareil");
 
@@ -16,11 +15,11 @@ function buttonApplianceFactory(datas) {
 
    function getAppareilWrapperDOM() {
       // Création des éléments wrapper option appareils (li)
-      uniqueAppareils.forEach((appareil) => {
+      uniqueAppliancesSort.forEach((appliance) => {
          const wrapperOption = document.createElement("li");
          wrapperOption.className = "wrapper__option";
          currentOption++;
-         wrapperOption.textContent = appareil;
+         wrapperOption.textContent = appliance;
          wrapperOption.setAttribute("id", "ma" + currentOption);
          wrapperListAppareil.appendChild(wrapperOption);
       });
