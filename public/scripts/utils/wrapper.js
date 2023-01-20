@@ -1,7 +1,6 @@
 // Bouton ingrédients
 // Ouverture du wrapper
 const buttonWrapperIngredient = document.querySelector(".button__wrapper--ingredient");
-console.log(buttonWrapperIngredient);
 buttonWrapperIngredient.addEventListener("click", openDropdownIngredient);
 
 // Fermeture du wrapper
