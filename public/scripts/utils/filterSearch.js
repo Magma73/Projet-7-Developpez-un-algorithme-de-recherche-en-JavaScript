@@ -36,13 +36,13 @@ function filterRecipes(valueSearch) {
          //     );
 
          //Je recherche le mot dans le titre
-         recipe.name.includes(wordToFind) ||
+         recipe.name.toLowerCase().includes(wordToFind) ||
          console.log(recipe.name.includes(wordToFind)) ||
          // Je recherche le mot dans les ingrédients
-         recipe.ingredients.some((ingredient) => ingredient.ingredient.includes(wordToFind)) ||
+         recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(wordToFind)) ||
          console.log(recipe.ingredients.some((ingredient) => ingredient.ingredient.includes(wordToFind))) ||
          // Je recherche le mot dans la description
-         recipe.description.includes(wordToFind) ||
+         recipe.description.toLowerCase().includes(wordToFind) ||
          console.log(recipe.description.includes(wordToFind))
       );
    });
