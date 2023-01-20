@@ -7,3 +7,21 @@
     color:rgba(black,0.25);
     // font-size:18px;
 }
+.input-group[data-error]::after {
+    content: attr(data-error);
+    font-size: 1.15rem;
+    color: #901C1C;
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 12px;
+    text-align: left;
+    opacity: 0;
+    transition: 0.3s;
+  }
+.input-group[data-error-visible=true]::after {
+    opacity: 1;
+    position: relative;
+  }
+.input-group[data-error-visible=""]::after {
+    display: none;
+  }
