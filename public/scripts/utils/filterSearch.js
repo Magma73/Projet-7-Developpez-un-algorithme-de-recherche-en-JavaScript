@@ -1,6 +1,7 @@
 const searchForm = document.querySelector("#search-input");
 const searchBtn = document.querySelector("#search-addon");
-const inputGroupSearch = document.querySelector(".input-group.rounded.align-items-center.message");
+const searchContainer = document.querySelector(".search-container");
+// const errorMsg = document.querySelector("#error-msg");
 
 searchBtn.addEventListener("click", filterSearch);
 
@@ -52,13 +53,15 @@ function filterRecipes(valueSearch) {
 
    if (arrayFilterRecipes.length === 0) {
     // J'affiche le message d'erreur
-    inputGroupSearch.setAttribute("data-error", 'Aucune recette ne correspond à votre critère...Vous pouvez chercher "tarte aux pommes", "poisson", etc.');
-    inputGroupSearch.setAttribute("data-error-visible", "true");
+    searchContainer.setAttribute("data-error", 'Aucune recette ne correspond à votre critère...Vous pouvez chercher "tarte aux pommes", "poisson", etc.');
+    searchContainer.setAttribute("data-error-visible", "true");
+    // errorMsg.style.display="block";
     console.log('Aucune recette ne correspond à votre critère...Vous pouvez chercher "tarte aux pommes", "poisson", etc.');
  } else {
     //Je n'affiche pas le message d'erreur
-    inputGroupSearch.setAttribute("data-error", "");
-    inputGroupSearch.setAttribute("data-error-visible", "");
+    searchContainer.setAttribute("data-error", "");
+    searchContainer.setAttribute("data-error-visible", "");
+
     console.log(arrayFilterRecipes);
  }
 }
