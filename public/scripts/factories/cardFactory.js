@@ -20,6 +20,7 @@ function recetteCardFactory(datas) {
       // image.setAttribute("src", "https://source.unsplash.com/random/300x150?recette");
       image.setAttribute("src", picture);
       image.setAttribute("alt", name);
+      image.setAttribute("style", "height: 250px;object-fit: cover;");
 
       // Création card header
       const cardHeader = document.createElement("div");
