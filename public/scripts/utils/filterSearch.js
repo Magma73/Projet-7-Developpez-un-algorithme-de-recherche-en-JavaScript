@@ -17,6 +17,9 @@ function filterSearch() {
       filterRecipes(valueSearch);
    } else if (nbCaracteres < 3) {
       console.log("Veuillez entrer plus de 3 caractères");
+      // J'affiche le message d'erreur
+      searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
+      searchContainer.setAttribute("data-error-visible", "true");
    }
 }
 
@@ -29,13 +32,13 @@ function filterRecipes(valueSearch) {
       return (
          //Je recherche le mot dans le titre
          recipe.name.toLowerCase().includes(wordToFind) ||
-        //  console.log(recipe.name.includes(wordToFind)) ||
+         //  console.log(recipe.name.includes(wordToFind)) ||
          // Je recherche le mot dans les ingrédients
          recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(wordToFind)) ||
-        //  console.log(recipe.ingredients.some((ingredient) => ingredient.ingredient.includes(wordToFind))) ||
+         //  console.log(recipe.ingredients.some((ingredient) => ingredient.ingredient.includes(wordToFind))) ||
          // Je recherche le mot dans la description
          recipe.description.toLowerCase().includes(wordToFind)
-        //  console.log(recipe.description.includes(wordToFind))
+         //  console.log(recipe.description.includes(wordToFind))
       );
    });
 
