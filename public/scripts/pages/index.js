@@ -152,7 +152,7 @@ async function displayButtonUstensil(recipes) {
 // Fonction de filtre de la recherche avancée par ustensiles
 async function displayButtonUstensil(arrayFilterRecipes) {
    // Je réinitialise le container des appareils
-   const wrapperListUstensil = document.querySelector(".wrapper__list--appareil");
+   const wrapperListUstensil = document.querySelector(".wrapper__list--ustensil");
    wrapperListUstensil.innerHTML = "";
    // Je modifie le tableau d'objets ustensils afin de supprimer les doublons
    const arrayOfArraysUstensils = arrayFilterRecipes.map((recipe) => recipe.ustensils); // Je crée un nouveau tableau avec les ustensils
