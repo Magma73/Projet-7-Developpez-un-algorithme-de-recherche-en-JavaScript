@@ -17,7 +17,6 @@ function recetteCardFactory(datas) {
       // Création img
       const image = document.createElement("img");
       image.className = "card-img-top";
-      // image.setAttribute("src", "https://source.unsplash.com/random/300x150?recette");
       image.setAttribute("src", picture);
       image.setAttribute("alt", name);
       image.setAttribute("style", "height: 250px;object-fit: cover;");
