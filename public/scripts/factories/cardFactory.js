@@ -65,10 +65,6 @@ function recetteCardFactory(datas) {
       listBody.className = "list-unstyled";
       listBody.setAttribute("style", "font-size: 12px");
 
-      // Création element list card body
-      const elementListBody = document.createElement("li");
-      elementListBody.textContent = "hello";
-
       // Création col2 card body
       const colBody2 = document.createElement("div");
       colBody2.className = "col";
@@ -82,6 +78,7 @@ function recetteCardFactory(datas) {
       // Création des unités
       ingredients.forEach((ingredient) => {
          const elementListBody = document.createElement("li");
+         elementListBody.setAttribute("style", "text-transform: capitalize");
 
          // Condition pour afficher ou non les quantités et unités
          if (ingredient.quantity == undefined) {
