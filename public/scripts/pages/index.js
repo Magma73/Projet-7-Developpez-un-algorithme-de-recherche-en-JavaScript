@@ -2,6 +2,20 @@
 async function displayData(recipes) {
    const cardColsSection = document.querySelector(".cardsCols");
 
+   // Je trie par ordre alphabétique
+   recipes.sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      if (nameA < nameB) {
+         return -1;
+      }
+      if (nameA > nameB) {
+         return 1;
+      }
+      return 0;
+   });
+
+   // Je génère chaque recette
    recipes.forEach((recipe) => {
       const recipeModel = recetteCardFactory(recipe);
       const recipeCardDOM = recipeModel.getRecetteCardDOM();
@@ -9,13 +23,24 @@ async function displayData(recipes) {
    });
 }
 
+
 // Fonction de création du bouton ingrédient
 async function displayButtonIngredient(recipes) {
-   const wrapperHiddenIngredient = document.querySelector(".wrapper__hidden--ingredient");
-   const ingredientWrapperModel = buttonIngredientFactory(recipes);
-   const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
-   wrapperHiddenIngredient.appendChild(ingredientWrapperCardDOM);
+   // Je modifie le tableau d'objets ingrédients afin de supprimer les doublons
+   const arrayIngredients = recipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
+   const arrayIngredientsLowerCase = arrayIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
+   const uniqueIngredients = Array.from(new Set(arrayIngredientsLowerCase)); // Je supprime les doublons
+   const uniqueIngredientsSort = uniqueIngredients.sort((a, b) => a.localeCompare(b, 'fr')); // Je trie par ordre alphabétique
+
+   // Je génère chaque ingrédient
+   uniqueIngredientsSort.forEach((ingredient) => {
+      const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
+      const ingredientWrapperModel = buttonIngredientFactory(ingredient);
+      const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
+      wrapperListIngredient.appendChild(ingredientWrapperCardDOM);
+   });
 }
+
 // Fonction de création du bouton appareil
 async function displayButtonAppliance(recipes) {
    const wrapperHiddenAppareil = document.querySelector(".wrapper__hidden--appareil");

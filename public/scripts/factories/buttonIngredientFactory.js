@@ -1,13 +1,5 @@
 function buttonIngredientFactory(datas) {
-   const { ingredients } = datas;
-
-   // Je modifie le tableau d'objets ingrédients afin de supprimer les doublons
-   const arrayIngredients = recipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
-   const arrayIngredientsLowerCase = arrayIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
-   const uniqueIngredients = Array.from(new Set(arrayIngredientsLowerCase)); // Je supprime les doublons
-   const uniqueIngredientsSort = uniqueIngredients.sort((a, b) => a.localeCompare(b, 'fr')); // Je trie par ordre alphabétique
-
-   const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
+   const ingredient = datas;
 
    // FACTORY DE LA LISTE DES INGREDIENTS
 
@@ -16,17 +8,14 @@ function buttonIngredientFactory(datas) {
 
    function getIngredientWrapperDOM() {
       // Création des éléments wrapper option ingrédients (li)
-      uniqueIngredientsSort.forEach((ingredient) => {
-         const wrapperOption = document.createElement("li");
-         wrapperOption.className = "wrapper__option";
-         currentOption++;
-         wrapperOption.textContent = ingredient;
-         wrapperOption.setAttribute("id", "mi" + currentOption);
-         wrapperListIngredient.appendChild(wrapperOption);
-      });
+      const wrapperOption = document.createElement("li");
+      wrapperOption.className = "wrapper__option";
+      currentOption++;
+      wrapperOption.textContent = ingredient;
+      wrapperOption.setAttribute("id", "mi" + currentOption);
 
-      return wrapperListIngredient;
+      return wrapperOption;
    }
 
-   return { ingredients, getIngredientWrapperDOM };
+   return { ingredient, getIngredientWrapperDOM };
 }

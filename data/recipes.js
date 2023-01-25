@@ -690,7 +690,7 @@ const recipes = [
     },
     {
         "id": 20,
-        "name": "Pates Carbonara",
+        "name": "Pâtes Carbonara",
         "photo" : "patescarbonara.jpg",
         "servings": 5,
         "ingredients": [
