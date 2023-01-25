@@ -44,6 +44,9 @@ function filterRecipes(valueSearch) {
    // J'appelle la fonction de filtre de la recherche avancée par appareil
    displayButtonAppliance(arrayFilterRecipes);
 
+   // J'appelle la fonction de filtre de la recherche avancée par ustensile
+   displayButtonUstensil(arrayFilterRecipes);
+
    if (arrayFilterRecipes.length === 0) {
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", 'Aucune recette ne correspond à votre critère...Vous pouvez chercher "tarte aux pommes", "poisson", etc.');
