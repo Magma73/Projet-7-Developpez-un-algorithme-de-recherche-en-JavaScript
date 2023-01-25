@@ -2,7 +2,48 @@
 async function displayData(recipes) {
    const cardColsSection = document.querySelector(".cardsCols");
 
+   // Je trie par ordre alphabétique
+   recipes.sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      if (nameA < nameB) {
+         return -1;
+      }
+      if (nameA > nameB) {
+         return 1;
+      }
+      return 0;
+   });
+
+   // Je génère chaque recette
    recipes.forEach((recipe) => {
+      const recipeModel = recetteCardFactory(recipe);
+      const recipeCardDOM = recipeModel.getRecetteCardDOM();
+      cardColsSection.appendChild(recipeCardDOM);
+   });
+}
+
+// Fonction de création des recettes filtrées
+async function displayData(arrayFilterRecipes) {
+   const cardColsSection = document.querySelector(".cardsCols");
+   // Je réinitialise le container des cartes
+   cardColsSection.innerHTML = "";
+
+   // Je trie par ordre alphabétique
+   arrayFilterRecipes.sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      if (nameA < nameB) {
+         return -1;
+      }
+      if (nameA > nameB) {
+         return 1;
+      }
+      return 0;
+   });
+
+   // Je génère chaque recette
+   arrayFilterRecipes.forEach((recipe) => {
       const recipeModel = recetteCardFactory(recipe);
       const recipeCardDOM = recipeModel.getRecetteCardDOM();
       cardColsSection.appendChild(recipeCardDOM);

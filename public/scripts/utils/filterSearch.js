@@ -8,10 +8,10 @@ searchBtn.addEventListener("click", filterSearch);
 function filterSearch() {
    // Je récupère la valeur saisie dans l'input et je le mets en minuscules
    valueSearch = searchForm.value.toLowerCase();
-   console.log(valueSearch);
+   // console.log(valueSearch);
    // Je calcule la longueur de la valeur saisie
    nbCaracteres = valueSearch.length;
-   console.log(nbCaracteres);
+   // console.log(nbCaracteres);
 
    if (nbCaracteres >= 3) {
       filterRecipes(valueSearch);
@@ -25,8 +25,8 @@ function filterSearch() {
 
 function filterRecipes(valueSearch) {
    const wordToFind = valueSearch;
-   const arrayRecipesLength = recipes.length;
-   console.log("Longueur avant :", arrayRecipesLength);
+   // const arrayRecipesLength = recipes.length;
+   // console.log("Longueur avant :", arrayRecipesLength);
    const arrayFilterRecipes = recipes.filter((recipe) => {
       // Je teste chaque recette
       return (
@@ -42,20 +42,18 @@ function filterRecipes(valueSearch) {
       );
    });
 
-   console.log("Longueur après :", arrayFilterRecipes.length);
+   // J'appelle la fonction  de création des recettes filtrées
+   displayData(arrayFilterRecipes);
 
    if (arrayFilterRecipes.length === 0) {
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", 'Aucune recette ne correspond à votre critère...Vous pouvez chercher "tarte aux pommes", "poisson", etc.');
       searchContainer.setAttribute("data-error-visible", "true");
-      // errorMsg.style.display="block";
       console.log('Aucune recette ne correspond à votre critère...Vous pouvez chercher "tarte aux pommes", "poisson", etc.');
    } else {
       //Je n'affiche pas le message d'erreur
       searchContainer.setAttribute("data-error", "");
       searchContainer.setAttribute("data-error-visible", "");
-
-      console.log(arrayFilterRecipes);
    }
 }
 
