@@ -38,8 +38,11 @@ function filterRecipes(valueSearch) {
    // J'appelle la fonction  de création des recettes filtrées
    displayData(arrayFilterRecipes);
 
-      // J'appelle la fonction de filtre de la recherche avancée par ingrédients
+   // J'appelle la fonction de filtre de la recherche avancée par ingrédients
    displayButtonIngredient(arrayFilterRecipes);
+
+   // J'appelle la fonction de filtre de la recherche avancée par appareil
+   displayButtonAppliance(arrayFilterRecipes);
 
    if (arrayFilterRecipes.length === 0) {
       // J'affiche le message d'erreur
@@ -52,13 +55,13 @@ function filterRecipes(valueSearch) {
    }
 }
 
-function filterIngredients(arrayFilterRecipes){
+function filterIngredients(arrayFilterRecipes) {
    const arrayFilterIngredients = arrayFilterRecipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
    const arrayIngredientsLowerCase = arrayFilterIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
    const uniqueIngredients = Array.from(new Set(arrayIngredientsLowerCase)); // Je supprime les doublons
-   const uniqueIngredientsSort = uniqueIngredients.sort((a, b) => a.localeCompare(b, 'fr')); // Je trie par ordre alphabétique
+   const uniqueIngredientsSort = uniqueIngredients.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
 
    console.log(uniqueIngredientsSort);
-};
+}
 
 // function filterDescription(){};

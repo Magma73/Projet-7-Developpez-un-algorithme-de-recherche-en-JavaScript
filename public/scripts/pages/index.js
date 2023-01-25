@@ -56,7 +56,7 @@ async function displayButtonIngredient(recipes) {
    const arrayIngredients = recipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
    const arrayIngredientsLowerCase = arrayIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
    const uniqueIngredients = Array.from(new Set(arrayIngredientsLowerCase)); // Je supprime les doublons
-   const uniqueIngredientsSort = uniqueIngredients.sort((a, b) => a.localeCompare(b, 'fr')); // Je trie par ordre alphabétique
+   const uniqueIngredientsSort = uniqueIngredients.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
 
    // Je génère chaque ingrédient
    uniqueIngredientsSort.forEach((ingredient) => {
@@ -64,37 +64,76 @@ async function displayButtonIngredient(recipes) {
       const ingredientWrapperModel = buttonIngredientFactory(ingredient);
       const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
       wrapperListIngredient.appendChild(ingredientWrapperCardDOM);
-      });
+   });
 }
 
 // Fonction de filtre de la recherche avancée par ingrédients
 async function displayButtonIngredient(arrayFilterRecipes) {
-    // Je réinitialise le container des ingrédients
-    const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
-    wrapperListIngredient.innerHTML = "";
+   // Je réinitialise le container des ingrédients
+   const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
+   wrapperListIngredient.innerHTML = "";
 
-      // Je modifie le tableau d'objets ingrédients afin de supprimer les doublons
-      const arrayFilterIngredients = arrayFilterRecipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
-      const arrayFilterIngredientsLowerCase = arrayFilterIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
-      const uniqueFilterIngredients = Array.from(new Set(arrayFilterIngredientsLowerCase)); // Je supprime les doublons
-      const uniqueFilterIngredientsSort = uniqueFilterIngredients.sort((a, b) => a.localeCompare(b, 'fr')); // Je trie par ordre alphabétique
+   // Je modifie le tableau d'objets ingrédients afin de supprimer les doublons
+   const arrayFilterIngredients = arrayFilterRecipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
+   const arrayFilterIngredientsLowerCase = arrayFilterIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
+   const uniqueFilterIngredients = Array.from(new Set(arrayFilterIngredientsLowerCase)); // Je supprime les doublons
+   const uniqueFilterIngredientsSort = uniqueFilterIngredients.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
 
-      // Je génère chaque ingrédient
-      uniqueFilterIngredientsSort.forEach((ingredient) => {
-         const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
-         const ingredientWrapperModel = buttonIngredientFactory(ingredient);
-         const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
-         wrapperListIngredient.appendChild(ingredientWrapperCardDOM);
-         });
+   // Je génère chaque ingrédient
+   uniqueFilterIngredientsSort.forEach((ingredient) => {
+      const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
+      const ingredientWrapperModel = buttonIngredientFactory(ingredient);
+      const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
+      wrapperListIngredient.appendChild(ingredientWrapperCardDOM);
+   });
 }
 
 // Fonction de création du bouton appareil
 async function displayButtonAppliance(recipes) {
-   const wrapperHiddenAppareil = document.querySelector(".wrapper__hidden--appareil");
-   const appareilWrapperModel = buttonApplianceFactory(recipes);
-   const appareilWrapperCardDOM = appareilWrapperModel.getAppareilWrapperDOM();
-   wrapperHiddenAppareil.appendChild(appareilWrapperCardDOM);
+   // Je modifie le tableau d'objets appareil afin de supprimer les doublons
+   const arrayOfArraysAppliances = recipes.map((recipe) => recipe.appliance.toLowerCase()); // Je crée un nouveau tableau avec les appareils et je mets tout en miniscules : Array(50) [ "Blender", "Saladier", "Cocotte", "Cuiseur de riz", "Four", "Four", "Four", "Four", "Saladier", "Four", … ]
+   const uniqueAppliances = Array.from(new Set(arrayOfArraysAppliances)); // Je supprime les doublons : Array(11) [ "blender", "saladier", "cocotte", "cuiseur de riz", "four", "casserole", "poêle à crêpe", "sauteuse", "mixer", "poêle", … ]
+   const uniqueAppliancesSort = uniqueAppliances.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
+
+   // Je génère chaque appareil
+   uniqueAppliancesSort.forEach((appliance) => {
+      const wrapperHiddenAppareil = document.querySelector(".wrapper__list--appareil");
+      const appareilWrapperModel = buttonApplianceFactory(appliance);
+      const appareilWrapperCardDOM = appareilWrapperModel.getAppareilWrapperDOM();
+      wrapperHiddenAppareil.appendChild(appareilWrapperCardDOM);
+   });
 }
+
+// Fonction de filtre de la recherche avancée par appareils
+async function displayButtonAppliance(arrayFilterRecipes) {
+   // Je réinitialise le container des appareils
+   const wrapperListAppliance = document.querySelector(".wrapper__list--appareil");
+   wrapperListAppliance.innerHTML = "";
+
+   // Je modifie le tableau d'objets appareil afin de supprimer les doublons
+   const arrayOfArraysFilterAppliances = arrayFilterRecipes.map((recipe) => recipe.appliance.toLowerCase()); // Je crée un nouveau tableau avec les appareils et je mets tout en miniscules
+   const uniqueFilterAppliances = Array.from(new Set(arrayOfArraysFilterAppliances)); // Je supprime les doublons
+   const uniqueFilterAppliancesSort = uniqueFilterAppliances.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
+
+   // Je génère chaque appareil
+   uniqueFilterAppliancesSort.forEach((appliance) => {
+      const wrapperHiddenAppareil = document.querySelector(".wrapper__list--appareil");
+      const appareilWrapperModel = buttonApplianceFactory(appliance);
+      const appareilWrapperCardDOM = appareilWrapperModel.getAppareilWrapperDOM();
+      wrapperHiddenAppareil.appendChild(appareilWrapperCardDOM);
+   });
+}
+
+
+
+
+
+
+
+
+
+
+
 // Fonction de création du bouton ustensile
 async function displayButtonUstensil(recipes) {
    const wrapperHiddenUstensil = document.querySelector(".wrapper__hidden--ustensil");
