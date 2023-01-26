@@ -14,10 +14,15 @@ function filterSearch() {
 
    if (nbCaracteres >= 3) {
       filterRecipes(valueSearch);
-   } else if (nbCaracteres < 3) {
+   } else if (nbCaracteres > 0 && nbCaracteres < 3) {
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
       searchContainer.setAttribute("data-error-visible", "true");
+   } else if (nbCaracteres === 0){
+      displayData(recipes);
+      displayButtonIngredient(recipes);
+      displayButtonAppliance(recipes);
+      displayButtonUstensil(recipes);
    }
 }
 
@@ -57,14 +62,3 @@ function filterRecipes(valueSearch) {
       searchContainer.setAttribute("data-error-visible", "");
    }
 }
-
-function filterIngredients(arrayFilterRecipes) {
-   const arrayFilterIngredients = arrayFilterRecipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
-   const arrayIngredientsLowerCase = arrayFilterIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
-   const uniqueIngredients = Array.from(new Set(arrayIngredientsLowerCase)); // Je supprime les doublons
-   const uniqueIngredientsSort = uniqueIngredients.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
-
-   console.log(uniqueIngredientsSort);
-}
-
-// function filterDescription(){};
