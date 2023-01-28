@@ -33,10 +33,10 @@ function filterRecipes(valueSearch) {
    console.log(wordToFind);
 
    for (let i = 0; i < recipes.length; i++) {
-    //Je recherche le mot dans le titre
+      //Je recherche le mot dans le titre
       if (recipes[i].name.includes(wordToFind)) {
          arrayFilterRecipes.push(recipes[i]);
-    // Je recherche le mot dans la description
+         // Je recherche le mot dans la description
       } else if (recipes[i].description.includes(wordToFind)) {
          arrayFilterRecipes.push(recipes[i]);
       }
@@ -54,15 +54,26 @@ function filterRecipes(valueSearch) {
 
    console.log(arrayFilterRecipes);
 
-   // const arrayFilterRecipes = recipes.filter((recipe) => {
-   //    // Je teste chaque recette
-   //    return (
-   //       //Je recherche le mot dans le titre
-   //       recipe.name.toLowerCase().includes(wordToFind) ||
-   //       // Je recherche le mot dans les ingrédients
-   //       recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(wordToFind)) ||
-   //       // Je recherche le mot dans la description
-   //       recipe.description.toLowerCase().includes(wordToFind)
-   //    );
-   // });
+   // J'appelle la fonction  de création des recettes filtrées
+   displayData(arrayFilterRecipes);
+
+   // J'appelle la fonction de filtre de la recherche avancée par ingrédients
+   displayButtonIngredient(arrayFilterRecipes);
+
+   // J'appelle la fonction de filtre de la recherche avancée par appareil
+   displayButtonAppliance(arrayFilterRecipes);
+
+   // J'appelle la fonction de filtre de la recherche avancée par ustensile
+   displayButtonUstensil(arrayFilterRecipes);
+
+   if (arrayFilterRecipes.length === 0) {
+      // J'affiche le message d'erreur
+      searchContainer.setAttribute("data-error", 'Aucune recette ne correspond à votre critère...Vous pouvez chercher "tarte aux pommes", "poisson", etc.');
+      searchContainer.setAttribute("data-error-visible", "true");
+      console.log("erreur");
+   } else {
+      //Je n'affiche pas le message d'erreur
+      searchContainer.setAttribute("data-error", "");
+      searchContainer.setAttribute("data-error-visible", "");
+   }
 }
