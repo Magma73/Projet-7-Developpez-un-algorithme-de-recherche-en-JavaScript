@@ -25,19 +25,17 @@ function filterSearch() {
       displayButtonUstensil(recipes);
    }
 }
-let arrayFilterRecipes = [];
 
 function filterRecipes(valueSearch) {
    const wordToFind = valueSearch;
-
-   console.log(wordToFind);
+   let arrayFilterRecipes = [];
 
    for (let i = 0; i < recipes.length; i++) {
       //Je recherche le mot dans le titre
-      if (recipes[i].name.includes(wordToFind)) {
+      if (recipes[i].name.toLowerCase().includes(wordToFind)) {
          arrayFilterRecipes.push(recipes[i]);
          // Je recherche le mot dans la description
-      } else if (recipes[i].description.includes(wordToFind)) {
+      } else if (recipes[i].description.toLowerCase().includes(wordToFind)) {
          arrayFilterRecipes.push(recipes[i]);
       }
    }
@@ -45,14 +43,24 @@ function filterRecipes(valueSearch) {
    // Je recherche le mot dans les ingrédients
    for (let i = 0; i < recipes.length; i++) {
       for (let j = 0; j < recipes[i].ingredients.length; j++) {
-         if (recipes[i].ingredients[j].ingredient.includes(wordToFind)) {
+         if (recipes[i].ingredients[j].ingredient.toLowerCase().includes(wordToFind)) {
             arrayFilterRecipes.push(recipes[i]);
             break;
          }
       }
    }
 
-   console.log(arrayFilterRecipes);
+   // Je supprime les doublons du tableau
+   for (let x = 0; x < arrayFilterRecipes.length; x++) {
+      for (let y = x + 1; y < arrayFilterRecipes.length; y++) {
+         if (arrayFilterRecipes[x] === arrayFilterRecipes[y]) {
+            arrayFilterRecipes.splice(y, 1);
+            y--;
+         }
+      }
+   }
+
+   // console.log(arrayFilterRecipes);
 
    // J'appelle la fonction  de création des recettes filtrées
    displayData(arrayFilterRecipes);
@@ -70,7 +78,7 @@ function filterRecipes(valueSearch) {
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", 'Aucune recette ne correspond à votre critère...Vous pouvez chercher "tarte aux pommes", "poisson", etc.');
       searchContainer.setAttribute("data-error-visible", "true");
-      console.log("erreur");
+      console.log("Aucune recette ne correspond à votre critère");
    } else {
       //Je n'affiche pas le message d'erreur
       searchContainer.setAttribute("data-error", "");
