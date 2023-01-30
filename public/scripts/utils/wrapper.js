@@ -1,11 +1,11 @@
 // Bouton ingrédients
 // Ouverture du wrapper
 const buttonWrapperIngredient = document.querySelector(".button__wrapper--ingredient");
-console.log(buttonWrapperIngredient);
+// console.log(buttonWrapperIngredient);
 buttonWrapperIngredient.addEventListener("click", openDropdownIngredient);
 
 // Fermeture du wrapper
-const wrapperHiddenIngredient = document.querySelector(".wrapper__hidden--ingredient");
+const wrapperHiddenIngredient = document.querySelector(".wrapper__icon--ingredient");
 
 wrapperHiddenIngredient.addEventListener("click", closeDropdownIngredient);
 
@@ -25,7 +25,7 @@ const buttonWrapperAppareil = document.querySelector(".button__wrapper--appareil
 buttonWrapperAppareil.addEventListener("click", openDropdownAppareil);
 
 // Fermeture du wrapper
-const wrapperHiddenAppareil = document.querySelector(".wrapper__hidden--appareil");
+const wrapperHiddenAppareil = document.querySelector(".wrapper__icon--appareil");
 
 wrapperHiddenAppareil.addEventListener("click", closeDropdownAppareil);
 
@@ -44,7 +44,7 @@ const buttonWrapperUstensil = document.querySelector(".button__wrapper--ustensil
 buttonWrapperUstensil.addEventListener("click", openDropdownUstensil);
 
 // Fermeture du wrapper
-const wrapperHiddenUstensil = document.querySelector(".wrapper__hidden--ustensil");
+const wrapperHiddenUstensil = document.querySelector(".wrapper__icon--ustensil");
 
 wrapperHiddenUstensil.addEventListener("click", closeDropdownUstensil);
 
