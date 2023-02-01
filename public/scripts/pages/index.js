@@ -177,12 +177,58 @@ async function displayButtonUstensil(arrayFilterRecipes) {
    });
 }
 
+// FONCTIONS DE CRÉATIONS DES TAGS
+
 async function init() {
    // Récupère les datas des recettes
    displayData(recipes);
    displayButtonIngredient(recipes);
    displayButtonAppliance(recipes);
    displayButtonUstensil(recipes);
+
+   // Je créé les boutons tags ingrédients au clic
+   const ingredients = document.querySelectorAll(".wrapper__option");
+   // console.log(ingredients);
+   ingredients.forEach((btn) =>
+      btn.addEventListener("click", function () {
+         // Je récupère la valeur de l'ingrédient
+         // const currentIngredient = this.previousElementSibling;
+         const currentIngredient = this.textContent;
+         console.log(this);
+         // console.log(currentIngredient);
+         // console.log(currentIngredient.textContent);
+
+         createTagIngredient(currentIngredient);
+         // const iconsCloseTag = document.querySelectorAll(".far fa-times-circle");
+
+      })
+   );
+
+      // Je créé la fermeture des boutons tags ingrédients au clic sur l'icône de fermeture
+      const iconsCloseTag = document.querySelectorAll(".far fa-times-circle");
+      const buttonsTag = document.querySelectorAll(".btn");
+      console.log(iconsCloseTag);
+
+      iconsCloseTag.forEach((btn) =>
+      btn.addEventListener("click", function (currentIngredient) {
+         if(currentIngredient !== ""){
+            console.log("Au moins un tag à supprimer");
+            buttonsTag.display.style = "none";
+            console.log(buttonsTag);
+         } else {
+            console.log("Pas de tag")
+         }
+         // Je récupère la valeur de l'ingrédient
+         // const currentIngredient = this.previousElementSibling;
+         // const currentIngredient = this.textContent;
+         // console.log(currentIngredient);
+         // console.log(currentIngredient.textContent);
+
+         // createTagIngredient(currentIngredient);
+      })
+   );
+
+
 }
 
 init();

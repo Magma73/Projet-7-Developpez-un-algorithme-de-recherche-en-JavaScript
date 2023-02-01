@@ -59,8 +59,8 @@
 
          <!-- SECTION TAGS -->
          <section id="tags" class="pt-4 pb-2 px-sm-4 mx-sm-3 mt-sm-2">
-            <div class="container d-flex flex-column flex-sm-row">
-               <button type="button" class="btn btn-ingredient text-white pl-3 pr-4 mr-sm-5 mb-3 mb-sm-0 fs-7 d-flex justify-content-between align-items-center">
+            <div class="container container__tags d-flex flex-column flex-sm-row">
+               <!-- <button type="button" class="btn btn-ingredient text-white pl-3 pr-4 mr-sm-5 mb-3 mb-sm-0 fs-7 d-flex justify-content-between align-items-center">
                   Coco
                   <span class="icon-close pl-3 d-flex align-items-center">
                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +92,7 @@
                         />
                      </svg>
                   </span>
-               </button>
+               </button> -->
             </div>
          </section>
 
@@ -114,7 +114,7 @@
                         <input class="button__hidden button__hidden--ingredient" placeholder="Rechercher un ingrédient">
                            <span class="wrapper__icon wrapper__icon--ingredient">
                               <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <path d="M1.88 10.5466L8 4.43996L14.12 10.5466L16 8.66663L8 0.66663L1.64355e-07 8.66663L1.88 10.5466Z" fill="white" />
+                                 <path d="M1.88 10.5466L8 4.43996L14.12 10.5466L16 8.66663L8 0.66663L1.64355e-07 8.66663L1.88 10.5466Z" fill="white" ></path>
                               </svg>
                            </span>
                         <ul class="wrapper__list wrapper__list--ingredient list-unstyled"></ul>
@@ -346,10 +346,12 @@
 
    <script src="./scripts/utils/wrapper.js"></script>
    <script src="./scripts/utils/filterSearch.js"></script>
+   <script src="./scripts/utils/tagIngredient.js"></script>
 
    <script src="./scripts/factories/buttonIngredientFactory.js"></script>
    <script src="./scripts/factories/buttonApplianceFactory.js"></script>
    <script src="./scripts/factories/buttonUstensilFactory.js"></script>
+   <script src="./scripts/factories/tagIngredientFactory.js"></script>
 
    <script src="./scripts/pages/index.js"></script>
 </html>
