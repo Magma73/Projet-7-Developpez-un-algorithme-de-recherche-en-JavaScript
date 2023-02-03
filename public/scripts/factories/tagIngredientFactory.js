@@ -5,7 +5,7 @@ function tagIngredientFactory(datas) {
    function getTagIngredientDOM() {
       // Création du bouton tag
       const buttonTagIngredient = document.createElement("button");
-      buttonTagIngredient.className = "btn btn-ingredient text-white pl-3 pr-4 mr-sm-5 mb-3 mb-sm-0 fs-7 d-flex justify-content-between align-items-center";
+      buttonTagIngredient.className = "btn btn-ingredient text-white pl-3 pr-4 mr-sm-5 mb-3 fs-7 d-flex justify-content-between align-items-center";
       buttonTagIngredient.textContent = currentIngredient;
       buttonTagIngredient.setAttribute("type", "button");
       buttonTagIngredient.setAttribute("style", "text-transform : capitalize");
