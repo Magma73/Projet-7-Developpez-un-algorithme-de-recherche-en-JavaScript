@@ -187,37 +187,44 @@ async function init() {
    displayButtonUstensil(recipes);
 
    // Je créé les boutons tags ingrédients au clic
-   const ingredients = document.querySelectorAll(".wrapper__option");
-   ingredients.forEach((btn) =>
-      btn.addEventListener("click", function (event) {
-         // Je récupère le texte de l'ingrédient
-         console.log(this);
-         const currentIngredient = this.textContent;
+   // const ingredients = document.querySelectorAll(".wrapper__option");
+   // ingredients.forEach((btn) =>
+   //    btn.addEventListener("click", function (event) {
+   //       // Je récupère le texte de l'ingrédient
+   //       console.log(this);
+   //       const currentIngredient = this.textContent;
 
-         // Je créé le bouton tag
-         createTagIngredient(currentIngredient);
+   //       // Je créé le bouton tag
+   //       createTagIngredient(currentIngredient);
 
-         // Je récupère tous les boutons tag
-         const buttonsTag = document.querySelectorAll(".btn");
-         // console.log(buttonsTag);
+   //       // Je récupère tous les boutons tag
+   //       const buttonsTag = document.querySelectorAll(".btn");
 
-         // si currentIngredient est déjà créé alors je ne recréé pas le tag
-         //    if(buttonsTag.length !== 0){
-         //       closeTagIngredient();
-         //    } else {
-         //       console.log("Pas de tag");
-         //    }
+   //       // si currentIngredient est déjà créé alors je ne recréé pas le tag
+   //       //    if(buttonsTag.length !== 0){
+   //       //       closeTagIngredient();
+   //       //    } else {
+   //       //       console.log("Pas de tag");
+   //       //    }
 
-         // Je supprime l'ingrédient cliqué de la liste des ingrédients
-         deleteIngredientList(event);
+   //       // Je supprime l'ingrédient cliqué de la liste des ingrédients
+   //       deleteIngredientList(event);
 
-         // Pour chaque bouton tag cliqué, je supprime le bouton et je remet l'ingrédient dans la liste
-         buttonsTag.forEach((btn) =>
-         btn.addEventListener("click", deleteButton, reAddIngredientList(event) ));
+   //       // Pour chaque bouton tag cliqué, je supprime le bouton et je remet l'ingrédient dans la liste
+   //       buttonsTag.forEach((btn) =>
+   //       btn.addEventListener("click", deleteButton, reAddIngredientList(event) ));
+   //    })
+   // );
 
 
-      })
-   );
+
+
+
+   
+
+
+
+
 }
 
 init();
