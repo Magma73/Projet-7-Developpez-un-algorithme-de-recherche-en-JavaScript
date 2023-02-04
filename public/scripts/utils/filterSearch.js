@@ -32,10 +32,10 @@ function filterRecipes(valueSearch) {
 
    for (let i = 0; i < recipes.length; i++) {
       //Je recherche le mot dans le titre
-      if (recipes[i].name.toLowerCase().includes(wordToFind)) {
+      if (recipes[i].name.toLowerCase().indexOf(wordToFind) !== -1) {
          arrayFilterRecipes.push(recipes[i]);
          // Je recherche le mot dans la description
-      } else if (recipes[i].description.toLowerCase().includes(wordToFind)) {
+      } else if (recipes[i].description.toLowerCase().indexOf(wordToFind) !== -1) {
          arrayFilterRecipes.push(recipes[i]);
       }
    }
@@ -43,7 +43,7 @@ function filterRecipes(valueSearch) {
    // Je recherche le mot dans les ingrédients
    for (let i = 0; i < recipes.length; i++) {
       for (let j = 0; j < recipes[i].ingredients.length; j++) {
-         if (recipes[i].ingredients[j].ingredient.toLowerCase().includes(wordToFind)) {
+         if (recipes[i].ingredients[j].ingredient.toLowerCase().indexOf(wordToFind) !== -1) {
             arrayFilterRecipes.push(recipes[i]);
             break;
          }
