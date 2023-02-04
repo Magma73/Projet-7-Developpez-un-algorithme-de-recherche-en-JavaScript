@@ -139,6 +139,24 @@
   left: 0px;
   background: #3282F7;
 }
+.wrapper__hidden--ingredient[data-error]::after {
+  content: attr(data-error);
+  font-size: 1.15rem;
+  color: #E7E7E7;
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 12px;
+  text-align: left;
+  opacity: 0;
+  transition: 0.3s;
+  padding-left: 20px;
+}
+.wrapper__hidden--ingredient[data-error-visible=true]::after {
+  opacity: 1;
+}
+.wrapper__hidden--ingredient[data-error-visible=""]::after {
+  display: none;
+}
 .wrapper__hidden--appareil {
   display: none;
   left: 0px;

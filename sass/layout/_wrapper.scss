@@ -33,6 +33,24 @@
          display: none;
          left: 0px;
          background: $ingredient;
+         &[data-error]::after {
+            content: attr(data-error);
+            font-size: 1.15rem;
+            color: $secondary;
+            display: block;
+            margin-top: 14px;
+            margin-bottom: 12px;
+            text-align: left;
+            opacity: 0;
+            transition: 0.3s;
+            padding-left: 20px;
+         }
+         &[data-error-visible="true"]::after {
+            opacity: 1;
+         }
+         &[data-error-visible=""]::after {
+            display: none;
+         }
       }
       &--appareil {
          display: none;
