@@ -26,7 +26,7 @@ function createTagIngredient(currentIngredient) {
 //     // console.log(currentIngredient);
 //   }
 
-//   function deleteButton() {
-//      this.remove();
-//     // console.log(this);
-//   }
+  function deleteTagIngredient() {
+     this.remove();
+    console.log(this);
+  }

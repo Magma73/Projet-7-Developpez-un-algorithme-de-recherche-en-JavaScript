@@ -88,6 +88,33 @@ async function displayButtonIngredient(arrayFilterRecipes) {
    });
 }
 
+// Fonction de filtre de la recherche avancée par ingrédients lors de la saisie dans l'input
+async function displayInputListIngredient(arrayFilterRecipes, searchValue) {
+   // Je réinitialise le container des ingrédients
+   const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
+   wrapperListIngredient.innerHTML = "";
+
+   const wordToFind = searchValue;
+   console.log(searchValue);
+
+   // Je modifie le tableau d'objets ingrédients afin de supprimer les doublons
+   const arrayFilterIngredients = arrayFilterRecipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
+   const arrayFilterIngredientsLowerCase = arrayFilterIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
+   const uniqueFilterIngredients = Array.from(new Set(arrayFilterIngredientsLowerCase)); // Je supprime les doublons
+   const uniqueFilterIngredientsSort = uniqueFilterIngredients.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
+   const valueFilterIngredient = uniqueFilterIngredientsSort.filter((ingredients) => ingredients.includes(wordToFind));
+
+   console.log(valueFilterIngredient);
+
+   // // Je génère chaque ingrédient
+   valueFilterIngredient.forEach((ingredient) => {
+      const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
+      const ingredientWrapperModel = buttonIngredientFactory(ingredient);
+      const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
+      wrapperListIngredient.appendChild(ingredientWrapperCardDOM);
+   });
+}
+
 // Fonction de création de la liste d'appareils : bouton appareil
 async function displayButtonAppliance(recipes) {
    // Je modifie le tableau d'objets appareil afin de supprimer les doublons
@@ -187,44 +214,29 @@ async function init() {
    displayButtonUstensil(recipes);
 
    // Je créé les boutons tags ingrédients au clic
-   // const ingredients = document.querySelectorAll(".wrapper__option");
-   // ingredients.forEach((btn) =>
-   //    btn.addEventListener("click", function (event) {
-   //       // Je récupère le texte de l'ingrédient
-   //       console.log(this);
-   //       const currentIngredient = this.textContent;
+   const ingredients = document.querySelectorAll(".wrapper__option");
+   ingredients.forEach((btn) =>
+      btn.addEventListener("click", function () {
+         // Je récupère le texte de l'ingrédient
+         const currentIngredient = this.textContent;
 
-   //       // Je créé le bouton tag
-   //       createTagIngredient(currentIngredient);
+         // Je créé le bouton tag
+         if ("likeClicked" in this.dataset === false) {
+            this.dataset.likeClicked = "clicked";
+            this.setAttribute("aria-label", "Tag ajouté");
+            createTagIngredient(currentIngredient);
+         } else if ("likeClicked" in this.dataset === true) {
+            console.log("Déjà cliqué");
+            this.setAttribute("aria-label", "Tag déjà créé");
+         }
 
-   //       // Je récupère tous les boutons tag
-   //       const buttonsTag = document.querySelectorAll(".btn");
+         // Je récupère tous les boutons tag
+         const buttonsTag = document.querySelectorAll(".btn");
 
-   //       // si currentIngredient est déjà créé alors je ne recréé pas le tag
-   //       //    if(buttonsTag.length !== 0){
-   //       //       closeTagIngredient();
-   //       //    } else {
-   //       //       console.log("Pas de tag");
-   //       //    }
-
-   //       // Je supprime l'ingrédient cliqué de la liste des ingrédients
-   //       deleteIngredientList(event);
-
-   //       // Pour chaque bouton tag cliqué, je supprime le bouton et je remet l'ingrédient dans la liste
-   //       buttonsTag.forEach((btn) =>
-   //       btn.addEventListener("click", deleteButton, reAddIngredientList(event) ));
-   //    })
-   // );
-
-
-
-
-
-   
-
-
-
-
+         // Je supprime le tag
+         buttonsTag.forEach((btn) => btn.addEventListener("click", deleteTagIngredient));
+      })
+   );
 }
 
 init();
