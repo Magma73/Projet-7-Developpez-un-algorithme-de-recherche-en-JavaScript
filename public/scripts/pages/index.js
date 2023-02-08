@@ -302,7 +302,9 @@ async function init() {
    displayListAppliance(recipes);
    displayListUstensil(recipes);
 
-   // eventCreateTagIngredient();
+   eventCreateTagIngredient();
+   eventCreateTagAppliance();
+   eventCreateTagUstensil();
    // Je créé les boutons tags ingrédients au clic
    // const ingredients = document.querySelectorAll(".wrapper__option");
    // ingredients.forEach((btn) =>
