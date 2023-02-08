@@ -12,7 +12,7 @@ function buttonApplianceFactory(datas) {
       wrapperOption.className = "wrapper__option wrapper__option--appareil";
       currentOption++;
       wrapperOption.textContent = appliance;
-      wrapperOption.setAttribute("id", "ma" + currentOption);
+      // wrapperOption.setAttribute("id", "ma" + currentOption);
 
       return wrapperOption;
    }

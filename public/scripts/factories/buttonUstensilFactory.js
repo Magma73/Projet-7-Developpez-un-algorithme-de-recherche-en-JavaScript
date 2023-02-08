@@ -12,7 +12,7 @@ function buttonUstensilFactory(datas) {
       wrapperOption.className = "wrapper__option wrapper__option--ustensil";
       currentOption++;
       wrapperOption.textContent = ustensil;
-      wrapperOption.setAttribute("id", "mu" + currentOption);
+      // wrapperOption.setAttribute("id", "mu" + currentOption);
 
       return wrapperOption;
    }
