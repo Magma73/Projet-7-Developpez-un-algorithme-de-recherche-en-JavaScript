@@ -1,3 +1,4 @@
+let selectedTagsUstensil = [];
 // Je créé le tag appareil
 function createTagUstensil(currentUstensil) {
     const containerTags = document.querySelector(".container__tags");
@@ -24,7 +25,9 @@ function createTagUstensil(currentUstensil) {
              this.dataset.likeClicked = "clicked";
              this.setAttribute("aria-label", "Tag ajouté");
              createTagUstensil(currentUstensil);
+             selectedTagsUstensil.push(currentUstensil);
              console.log(currentUstensil);
+             filterRecipesTags();
           } else if ("likeClicked" in this.dataset === true) {
              console.log("Déjà cliqué");
              this.setAttribute("aria-label", "Tag déjà créé");

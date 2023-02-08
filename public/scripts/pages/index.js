@@ -25,7 +25,7 @@ async function displayData(recipes) {
    });
 }
 
-// Fonction de création des recettes filtrées
+// Fonction de création des recettes filtrées par recherche simple
 async function displayDataSimpleFilter(arrayFilterRecipes) {
    const cardColsSection = document.querySelector(".cardsCols");
    // Je réinitialise le container des cartes
@@ -51,7 +51,7 @@ async function displayDataSimpleFilter(arrayFilterRecipes) {
       cardColsSection.appendChild(recipeCardDOM);
    });
 }
-// Fonction de création des recettes filtrées
+// Fonction de création des recettes filtrées pa recherche avancée
 async function displayDataAdvancedFilter(arrayAdvancedFilterRecipes) {
    const cardColsSection = document.querySelector(".cardsCols");
    // Je réinitialise le container des cartes
@@ -77,6 +77,34 @@ async function displayDataAdvancedFilter(arrayAdvancedFilterRecipes) {
       cardColsSection.appendChild(recipeCardDOM);
    });
 }
+
+// Fonction de création des recettes filtrées par tag
+async function displayDataTagFilter(arrayAdvancedFilterRecipes) {
+   const cardColsSection = document.querySelector(".cardsCols");
+   // Je réinitialise le container des cartes
+   cardColsSection.innerHTML = "";
+
+   // Je trie par ordre alphabétique
+   arrayAdvancedFilterRecipes.sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      if (nameA < nameB) {
+         return -1;
+      }
+      if (nameA > nameB) {
+         return 1;
+      }
+      return 0;
+   });
+
+   // Je génère chaque recette
+   arrayAdvancedFilterRecipes.forEach((advancedFilterRecipe) => {
+      const recipeModel = recetteCardFactory(advancedFilterRecipe);
+      const recipeCardDOM = recipeModel.getRecetteCardDOM();
+      cardColsSection.appendChild(recipeCardDOM);
+   });
+}
+
 
 // Fonction de création da la liste d'ingrédient : bouton ingrédient
 async function displayListIngredient(recipes) {
@@ -135,6 +163,29 @@ async function displayListIngredientAdvancedFilter(arrayAdvancedFilterRecipes, s
 
    // Je génère chaque ingrédient
    valueFilterIngredient.forEach((ingredient) => {
+      const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
+      const ingredientWrapperModel = buttonIngredientFactory(ingredient);
+      const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
+      wrapperListIngredient.appendChild(ingredientWrapperCardDOM);
+   });
+}
+// Fonction de création da la liste d'ingrédient : tags ingrédients
+async function displayListIngredientTagFilter(arrayAdvancedFilterRecipes) {
+   // Je réinitialise le container des ingrédients
+   const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
+   wrapperListIngredient.innerHTML = "";
+   // const wordToFind = searchValueIngredient;
+   // console.log(wordToFind);
+
+   // Je modifie le tableau d'objets ingrédients afin de supprimer les doublons
+   const arrayFilterIngredients = arrayAdvancedFilterRecipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
+   const arrayFilterIngredientsLowerCase = arrayFilterIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
+   const uniqueFilterIngredients = Array.from(new Set(arrayFilterIngredientsLowerCase)); // Je supprime les doublons
+   const uniqueFilterIngredientsSort = uniqueFilterIngredients.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
+   // const valueFilterIngredient = uniqueFilterIngredientsSort.filter((ingredients) => ingredients.includes(wordToFind));
+
+   // Je génère chaque ingrédient
+   uniqueFilterIngredientsSort.forEach((ingredient) => {
       const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
       const ingredientWrapperModel = buttonIngredientFactory(ingredient);
       const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
