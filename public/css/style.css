@@ -162,10 +162,46 @@
   left: 0px;
   background: #68D9A4;
 }
+.wrapper__hidden--appareil[data-error]::after {
+  content: attr(data-error);
+  font-size: 1.15rem;
+  color: #E7E7E7;
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 12px;
+  text-align: left;
+  opacity: 0;
+  transition: 0.3s;
+  padding-left: 20px;
+}
+.wrapper__hidden--appareil[data-error-visible=true]::after {
+  opacity: 1;
+}
+.wrapper__hidden--appareil[data-error-visible=""]::after {
+  display: none;
+}
 .wrapper__hidden--ustensil {
   display: none;
   left: 0px;
   background: #ED6454;
+}
+.wrapper__hidden--ustensil[data-error]::after {
+  content: attr(data-error);
+  font-size: 1.15rem;
+  color: #E7E7E7;
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 12px;
+  text-align: left;
+  opacity: 0;
+  transition: 0.3s;
+  padding-left: 20px;
+}
+.wrapper__hidden--ustensil[data-error-visible=true]::after {
+  opacity: 1;
+}
+.wrapper__hidden--ustensil[data-error-visible=""]::after {
+  display: none;
 }
 .wrapper__icon {
   position: absolute;
