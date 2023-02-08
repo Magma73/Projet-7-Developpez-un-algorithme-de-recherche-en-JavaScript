@@ -1,4 +1,4 @@
-// Je génère le tag ingrédient
+// Je créé le tag ingrédient
 function createTagIngredient(currentIngredient) {
    const containerTags = document.querySelector(".container__tags");
    const tagIngredientModel = tagIngredientFactory(currentIngredient);
@@ -6,27 +6,35 @@ function createTagIngredient(currentIngredient) {
    containerTags.appendChild(ingredientTagCardDOM);
 }
 
+// Je créé la fonction de suppression des tags
+function deleteTagIngredient() {
+   this.remove();
+}
 
-// Je créé la fonction de fermeture des tags
-// function deleteIngredientList(event) {
-//     // event.target.remove();
-//     // console.log(currentIngredient.target);
-//     // console.log(currentIngredient);
+//  Je créé les boutons tags ingrédients au clic
+function eventCreateTagIngredient() {
+   const ingredientOption = document.querySelectorAll(".wrapper__option--ingredient");
+   ingredientOption.forEach((btn) =>
+      btn.addEventListener("click", function () {
+         // Je récupère le texte de l'ingrédient
+         const currentIngredient = this.textContent;
 
-//     event.target.style.display = "none";
-//     // console.log(event);
-//   }
+         // Je créé le bouton tag
+         if ("likeClicked" in this.dataset === false) {
+            this.dataset.likeClicked = "clicked";
+            this.setAttribute("aria-label", "Tag ajouté");
+            createTagIngredient(currentIngredient);
+            console.log(currentIngredient);
+         } else if ("likeClicked" in this.dataset === true) {
+            console.log("Déjà cliqué");
+            this.setAttribute("aria-label", "Tag déjà créé");
+         }
 
-//   function reAddIngredientList(event) {
-//     console.log(event);
-//     // event.target.style.display = "flex";
-//     // event.target.add();
-//     // console.log(event.target);
-//     // console.log(currentIngredient.target);
-//     // console.log(currentIngredient);
-//   }
+         // Je récupère tous les boutons tag
+         const buttonsTag = document.querySelectorAll(".btn");
 
-  function deleteTagIngredient() {
-     this.remove();
-    console.log(this);
-  }
+         // Je supprime le tag
+         buttonsTag.forEach((btn) => btn.addEventListener("click", deleteTagIngredient));
+      })
+   );
+}

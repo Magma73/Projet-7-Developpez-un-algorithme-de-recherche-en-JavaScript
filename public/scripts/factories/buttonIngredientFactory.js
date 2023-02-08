@@ -12,7 +12,7 @@ function buttonIngredientFactory(datas) {
       wrapperOption.className = "wrapper__option wrapper__option--ingredient";
       currentOption++;
       wrapperOption.textContent = ingredient;
-      wrapperOption.setAttribute("id", "mi" + currentOption);
+      // wrapperOption.setAttribute("id", "mi" + currentOption);
 
       return wrapperOption;
    }
