@@ -9,7 +9,7 @@ function buttonApplianceFactory(datas) {
    function getApplianceWrapperDOM() {
       // Création des éléments wrapper option appareils (li)
       const wrapperOption = document.createElement("li");
-      wrapperOption.className = "wrapper__option";
+      wrapperOption.className = "wrapper__option wrapper__option--appareil";
       currentOption++;
       wrapperOption.textContent = appliance;
       wrapperOption.setAttribute("id", "ma" + currentOption);
