@@ -112,21 +112,70 @@
   display: block;
 }
 .wrapper__select--ingredient.active {
-  margin-right: 514px;
+  margin-right: 5em;
+}
+@media (min-width: 576px) {
+  .wrapper__select--ingredient.active {
+    margin-right: 150px;
+  }
+}
+@media (min-width: 992px) {
+  .wrapper__select--ingredient.active {
+    margin-right: 350px;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper__select--ingredient.active {
+    margin-right: 514px;
+  }
 }
 .wrapper__select--appareil.active .wrapper__hidden--appareil {
   display: block;
 }
 .wrapper__select--appareil.active {
-  margin-right: 514px;
+  margin-right: 5em;
+}
+@media (min-width: 576px) {
+  .wrapper__select--appareil.active {
+    margin-right: 150px;
+  }
+}
+@media (min-width: 992px) {
+  .wrapper__select--appareil.active {
+    margin-right: 350px;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper__select--appareil.active {
+    margin-right: 514px;
+  }
 }
 .wrapper__select--ustensil.active .wrapper__hidden--ustensil {
   display: block;
 }
+.wrapper__select--ustensil.active {
+  margin-right: 5em;
+}
+@media (min-width: 576px) {
+  .wrapper__select--ustensil.active {
+    margin-right: 150px;
+  }
+}
+@media (min-width: 992px) {
+  .wrapper__select--ustensil.active {
+    margin-right: 350px;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper__select--ustensil.active {
+    margin-right: 514px;
+  }
+}
 .wrapper__hidden {
   display: flex;
   flex-direction: column;
-  width: 667px;
+  width: 100%;
+  max-width: 667px;
   position: absolute;
   top: 0px;
   color: #ffffff;
@@ -211,7 +260,6 @@
 }
 .wrapper__option {
   width: 215px;
-  /*   height: 69px; */
   padding: 5px 19px;
   cursor: pointer;
   list-style: none;
