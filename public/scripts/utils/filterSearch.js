@@ -4,6 +4,8 @@ const searchContainer = document.querySelector(".search-container");
 
 // J'appelle la fonction filterSearch au clic sur la loupe
 searchBtn.addEventListener("click", filterSearch);
+let arrayFilterRecipes = [];
+console.log(arrayFilterRecipes);
 
 function filterSearch() {
    // Je récupère la valeur saisie dans l'input et je le mets en minuscules
@@ -20,15 +22,21 @@ function filterSearch() {
       searchContainer.setAttribute("data-error-visible", "true");
    } else if (nbCaracteres === 0) {
       displayData(recipes);
-      displayButtonIngredient(recipes);
-      displayButtonAppliance(recipes);
-      displayButtonUstensil(recipes);
+      displayListIngredient(recipes);
+      displayListAppliance(recipes);
+      displayListUstensil(recipes);
+      // J'affiche le message d'erreur
+      searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
+      searchContainer.setAttribute("data-error-visible", "true");
+      // Je réinitialise mon tableau de recettes filtrées à 0
+      arrayFilterRecipes = [];
    }
 }
 
 function filterRecipes(valueSearch) {
    const wordToFind = valueSearch;
-   let arrayFilterRecipes = [];
+   // Je réinitialise mon tableau de recettes filtrées à 0
+   arrayFilterRecipes = [];
 
    for (let i = 0; i < recipes.length; i++) {
       //Je recherche le mot dans le titre
@@ -60,20 +68,13 @@ function filterRecipes(valueSearch) {
       }
    }
 
-   // console.log(arrayFilterRecipes);
+   // J'appelle les fonctions de création des recettes filtrées et des listes ingrédients, appareils et ustensiles
+   displayDataSimpleFilter(arrayFilterRecipes);
+   displayListIngredientSimpleFilter(arrayFilterRecipes);
+   displayListApplianceSimpleFilter(arrayFilterRecipes);
+   displayListUstensilSimpleFilter(arrayFilterRecipes);
 
-   // J'appelle la fonction  de création des recettes filtrées
-   displayData(arrayFilterRecipes);
-
-   // J'appelle la fonction de filtre de la recherche avancée par ingrédients
-   displayButtonIngredient(arrayFilterRecipes);
-
-   // J'appelle la fonction de filtre de la recherche avancée par appareil
-   displayButtonAppliance(arrayFilterRecipes);
-
-   // J'appelle la fonction de filtre de la recherche avancée par ustensile
-   displayButtonUstensil(arrayFilterRecipes);
-
+   // J'affiche un message d'erreur si aucune recette ne correspond
    if (arrayFilterRecipes.length === 0) {
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", 'Aucune recette ne correspond à votre critère...Vous pouvez chercher "tarte aux pommes", "poisson", etc.');
