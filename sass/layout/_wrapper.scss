@@ -7,22 +7,53 @@
          display: block;
       }
       &--ingredient.active {
-         margin-right: 514px;
+         margin-right: 5em;
+         @include media-breakpoint-up(sm) {
+            margin-right: 150px;
+         }
+         @include media-breakpoint-up(lg) {
+            margin-right: 350px;
+         }
+         @include media-breakpoint-up(xl) {
+            margin-right: 514px;
+         }
       }
       &--appareil.active .wrapper__hidden--appareil {
          display: block;
       }
       &--appareil.active {
-         margin-right: 514px;
+         margin-right: 5em;
+         @include media-breakpoint-up(sm) {
+            margin-right: 150px;
+         }
+         @include media-breakpoint-up(lg) {
+            margin-right: 350px;
+         }
+         @include media-breakpoint-up(xl) {
+            margin-right: 514px;
+         }
       }
       &--ustensil.active .wrapper__hidden--ustensil {
          display: block;
+      }
+      &--ustensil.active {
+         margin-right: 5em;
+         @include media-breakpoint-up(sm) {
+            margin-right: 150px;
+         }
+         @include media-breakpoint-up(lg) {
+            margin-right: 350px;
+         }
+         @include media-breakpoint-up(xl) {
+            margin-right: 514px;
+         }
       }
    }
    &__hidden {
       display: flex;
       flex-direction: column;
-      width: 667px;
+      width: 100%;
+      max-width: 667px;
       position: absolute;
       top: 0px;
       color: #ffffff;
@@ -33,16 +64,70 @@
          display: none;
          left: 0px;
          background: $ingredient;
+         &[data-error]::after {
+            content: attr(data-error);
+            font-size: 1.15rem;
+            color: $secondary;
+            display: block;
+            margin-top: 14px;
+            margin-bottom: 12px;
+            text-align: left;
+            opacity: 0;
+            transition: 0.3s;
+            padding-left: 20px;
+         }
+         &[data-error-visible="true"]::after {
+            opacity: 1;
+         }
+         &[data-error-visible=""]::after {
+            display: none;
+         }
       }
       &--appareil {
          display: none;
          left: 0px;
          background: $appareil;
+         &[data-error]::after {
+            content: attr(data-error);
+            font-size: 1.15rem;
+            color: $secondary;
+            display: block;
+            margin-top: 14px;
+            margin-bottom: 12px;
+            text-align: left;
+            opacity: 0;
+            transition: 0.3s;
+            padding-left: 20px;
+         }
+         &[data-error-visible="true"]::after {
+            opacity: 1;
+         }
+         &[data-error-visible=""]::after {
+            display: none;
+         }
       }
       &--ustensil {
          display: none;
          left: 0px;
          background: $ustensil;
+         &[data-error]::after {
+            content: attr(data-error);
+            font-size: 1.15rem;
+            color: $secondary;
+            display: block;
+            margin-top: 14px;
+            margin-bottom: 12px;
+            text-align: left;
+            opacity: 0;
+            transition: 0.3s;
+            padding-left: 20px;
+         }
+         &[data-error-visible="true"]::after {
+            opacity: 1;
+         }
+         &[data-error-visible=""]::after {
+            display: none;
+         }
       }
    }
    &__icon {
@@ -53,7 +138,6 @@
    }
    &__option {
       width: 215px;
-      /*   height: 69px; */
       padding: 5px 19px;
       cursor: pointer;
       list-style: none;

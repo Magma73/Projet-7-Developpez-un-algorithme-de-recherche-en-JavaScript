@@ -1,0 +1,32 @@
+$ingredient: #3282f7;
+$appareil: #68d9a4;
+$ustensil: #ed6454;
+
+$secondary: #e7e7e7;
+
+.btn-ingredient {
+   background: $ingredient !important;
+   font-size: 18px !important;
+}
+
+.btn-appareil {
+   background: $appareil !important;
+   font-size: 18px !important;
+}
+
+.btn-ustensil {
+   background: $ustensil !important;
+   font-size: 18px !important;
+}
+$grid-breakpoints: (
+   // Extra small screen / phone
+   xs: 0,
+   // Small screen / phone
+   sm: 576px,
+   // Medium screen / tablet
+   md: 768px,
+   // Large screen / desktop
+   lg: 992px,
+   // Extra large screen / wide desktop
+   xl: 1200px
+);
