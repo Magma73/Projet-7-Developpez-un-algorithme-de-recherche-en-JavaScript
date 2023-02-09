@@ -33,8 +33,8 @@
 
       <main class="px-sm-5">
          <!-- SECTION SEARCH -->
-         <section id="search" class="px-sm-4 mx-sm-3">
-            <div class="container search-container" data-error-visible="" data-error ="">
+         <div id="search" class="px-sm-4 mx-sm-3">
+            <div class="container search-container" data-error-visible="" data-error="">
                <div class="input-group rounded align-items-center message">
                   <input
                      type="search"
@@ -54,56 +54,21 @@
                      </svg>
                   </span>
                </div>
-               <div id="error-msg" style="display:none;">Aucune recette ne correspond à votre critère...Vous pouvez chercher "tarte aux pommes", "poisson", etc.</div>
-
             </div>
-         </section>
+         </div>
 
          <!-- SECTION TAGS -->
-         <section id="tags" class="pt-4 pb-2 px-sm-4 mx-sm-3 mt-sm-2">
-            <div class="container d-flex flex-column flex-sm-row">
-               <button type="button" class="btn btn-ingredient text-white pl-3 pr-4 mr-sm-5 mb-3 mb-sm-0 fs-7 d-flex justify-content-between align-items-center">
-                  Coco
-                  <span class="icon-close pl-3 d-flex align-items-center">
-                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                           d="M12.59 6L10 8.59L7.41 6L6 7.41L8.59 10L6 12.59L7.41 14L10 11.41L12.59 14L14 12.59L11.41 10L14 7.41L12.59 6ZM10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z"
-                           fill="white"
-                        />
-                     </svg>
-                  </span>
-               </button>
-               <button type="button" class="btn btn-appareil text-white pl-3 pr-4 mr-sm-5 mb-3 mb-sm-0 fs-7 d-flex justify-content-between align-items-center">
-                  Tag2
-                  <span class="icon-close pl-3 d-flex align-items-center">
-                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                           d="M12.59 6L10 8.59L7.41 6L6 7.41L8.59 10L6 12.59L7.41 14L10 11.41L12.59 14L14 12.59L11.41 10L14 7.41L12.59 6ZM10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z"
-                           fill="white"
-                        />
-                     </svg>
-                  </span>
-               </button>
-               <button type="button" class="btn btn-ustensil text-white pl-3 pr-4 mr-sm-5 mb-3 mb-sm-0 fs-7 d-flex justify-content-between align-items-center">
-                  Tag3
-                  <span class="icon-close pl-3 d-flex align-items-center">
-                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                           d="M12.59 6L10 8.59L7.41 6L6 7.41L8.59 10L6 12.59L7.41 14L10 11.41L12.59 14L14 12.59L11.41 10L14 7.41L12.59 6ZM10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z"
-                           fill="white"
-                        />
-                     </svg>
-                  </span>
-               </button>
+         <div id="tags" class="pt-4 pb-2 px-sm-4 mx-sm-3 mt-sm-2">
+            <div class="container container__tags d-flex flex-column flex-wrap flex-sm-row">
             </div>
-         </section>
+         </div>
 
          <!-- SECTION DROPDOWNS -->
-         <section id="dropdowns" class="py-1 px-sm-4 mx-sm-3 mt-sm-1 mb-3">
-            <div class="container d-flex flex-column flex-sm-row">
+         <div id="dropdowns" class="py-1 px-sm-4 mx-sm-3 mt-sm-1 mb-3">
+            <div class="container d-flex flex-column flex-md-row align-items-center">
                <div class="wrapper mr-sm-3">
-                  <div class="wrapper__select wrapper__select--ingredient">
-                     <button class="button button__wrapper button__wrapper--ingredient" type="button" id="menubutton1">
+                  <div class="wrapper__select wrapper__select--ingredient ">
+                     <button class="button button__wrapper button__wrapper--ingredient mb-3 mb-md-0" type="button" id="menubutton1">
                         Ingrédients
                         <span>
                            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,14 +77,13 @@
                         </span>
                      </button>
 
-                     <div class="wrapper__hidden wrapper__hidden--ingredient">
+                     <div class="wrapper__hidden wrapper__hidden--ingredient" data-error="" data-error-visible="">
                         <input class="button__hidden button__hidden--ingredient" placeholder="Rechercher un ingrédient">
                            <span class="wrapper__icon wrapper__icon--ingredient">
                               <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <path d="M1.88 10.5466L8 4.43996L14.12 10.5466L16 8.66663L8 0.66663L1.64355e-07 8.66663L1.88 10.5466Z" fill="white" />
+                                 <path d="M1.88 10.5466L8 4.43996L14.12 10.5466L16 8.66663L8 0.66663L1.64355e-07 8.66663L1.88 10.5466Z" fill="white" ></path>
                               </svg>
                            </span>
-                        </button>
                         <ul class="wrapper__list wrapper__list--ingredient list-unstyled"></ul>
                      </div>
                   </div>
@@ -127,7 +91,7 @@
 
                <div class="wrapper mr-sm-3">
                   <div class="wrapper__select wrapper__select--appareil">
-                     <button class="button button__wrapper button__wrapper--appareil" type="button" id="menubutton2">
+                     <button class="button button__wrapper button__wrapper--appareil mb-3 mb-md-0" type="button" id="menubutton2">
                         Appareils
                         <span>
                            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -136,8 +100,8 @@
                         </span>
                      </button>
 
-                     <div class="wrapper__hidden wrapper__hidden--appareil">
-                        <input class="button__hidden button__hidden--appareil"  placeholder="Rechercher un appareil">
+                     <div class="wrapper__hidden wrapper__hidden--appareil" data-error="" data-error-visible="">
+                        <input class="button__hidden button__hidden--appareil" placeholder="Rechercher un appareil">
                            <span class="wrapper__icon wrapper__icon--appareil">
                               <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                  <path d="M1.88 10.5466L8 4.43996L14.12 10.5466L16 8.66663L8 0.66663L1.64355e-07 8.66663L1.88 10.5466Z" fill="white" />
@@ -151,7 +115,7 @@
 
                <div class="wrapper">
                   <div class="wrapper__select wrapper__select--ustensil">
-                     <button class="button button__wrapper button__wrapper--ustensil" type="button" id="menubutton3">
+                     <button class="button button__wrapper button__wrapper--ustensil mb-3 mb-md-0" type="button" id="menubutton3">
                         Ustensiles
                         <span>
                            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -160,8 +124,8 @@
                         </span>
                      </button>
 
-                     <div class="wrapper__hidden wrapper__hidden--ustensil">
-                        <input class="button__hidden button__hidden--ustensil" placeholder="Rechercher un appareil">
+                     <div class="wrapper__hidden wrapper__hidden--ustensil" data-error="" data-error-visible="">
+                        <input class="button__hidden button__hidden--ustensil" placeholder="Rechercher un ustensile">
                            <span class="wrapper__icon wrapper__icon--ustensil">
                               <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                  <path d="M1.88 10.5466L8 4.43996L14.12 10.5466L16 8.66663L8 0.66663L1.64355e-07 8.66663L1.88 10.5466Z" fill="white" />
@@ -173,186 +137,36 @@
                   </div>
                </div>
             </div>
-         </section>
+         </div>
 
          <!-- SECTION CARDS -->
-         <section id="cards" class="px-sm-4 mx-sm-3">
+         <div id="cards" class="px-sm-4 mx-sm-3">
             <div class="container">
                <div class="cardsCols row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
-                  <!-- <div class="col">
-                     <article class="card h-100 bg-secondary">
-                        <img src="https://source.unsplash.com/random/300x150?limonad,coco" class="card-img-top" alt="...">
-                        <div class="card-header d-flex justify-content-between bg-secondary border-0">
-                           <h5 class="card-title">Limonade de Coco</h5>
-                           <p class="card-text"><i class="far fa-clock pr-2"></i>10 min</p>
-                        </div>
-                        <div class="card-body d-flex">
-                           <div class="container p-0">
-                              <div class="row">
-                                 <div class="col">
-                                    <ul class="list-unstyled" style="font-size: 12px">
-                                       <li>Lait de coco : 400ml</li>
-                                       <li>Jus de citron : 2</li>
-                                       <li>Crème de coco : 4 cuillères</li>
-                                       <li>Sucre : 20g</li>
-                                       <li>Glaçons : 2</li>
-                                    </ul>
-                                 </div>
-                                 <div class="col">
-                                    <p class="card-text" style="font-size: 12px">
-                                       Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.
-                                    </p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </article>
-                  </div> -->
-
-                  <!-- <div class="col">
-                     <div class="card h-100 bg-secondary">
-                        <img src="https://picsum.photos/seed/picsum/300/150?random=1" class="card-img-top" alt="...">
-                        <div class="card-header d-flex justify-content-between bg-secondary border-0">
-                           <h5 class="card-title">Limonade de Coco</h5>
-                           <p class="card-text"><i class="far fa-clock pe-2"></i>10 min</p>
-                        </div>
-                        <div class="card-body d-flex">
-                           <div class="container p-0">
-                              <div class="row">
-                                 <div class="col">
-                                    <ul class="list-unstyled" style="font-size: 12px">
-                                       <li>Lait de coco : 400ml</li>
-                                       <li>Jus de citron : 2</li>
-                                       <li>Crème de coco : 4 cuillères</li>
-                                       <li>Sucre : 20g</li>
-                                       <li>Glaçons : 2</li>
-                                    </ul>
-                                 </div>
-                                 <div class="col">
-                                    <p class="card-text" style="font-size: 12px">
-                                       Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.
-                                    </p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div> -->
-
-                  <!-- <div class="col">
-                     <div class="card h-100 bg-secondary">
-                        <img src="https://picsum.photos/seed/picsum/300/150?random=1" class="card-img-top" alt="...">
-                        <div class="card-header d-flex justify-content-between bg-secondary border-0">
-                           <h5 class="card-title">Limonade de Coco</h5>
-                           <p class="card-text"><i class="far fa-clock pe-2"></i>10 min</p>
-                        </div>
-                        <div class="card-body d-flex">
-                           <div class="container p-0">
-                              <div class="row">
-                                 <div class="col">
-                                    <ul class="list-unstyled" style="font-size: 12px">
-                                       <li>Lait de coco : 400ml</li>
-                                       <li>Jus de citron : 2</li>
-                                       <li>Crème de coco : 4 cuillères</li>
-                                       <li>Sucre : 20g</li>
-                                       <li>Glaçons : 2</li>
-                                    </ul>
-                                 </div>
-                                 <div class="col">
-                                    <p class="card-text" style="font-size: 12px">
-                                       Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.
-                                    </p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div> -->
-
-                  <!-- <div class="col">
-                     <div class="card h-100 bg-secondary">
-                        <img src="https://picsum.photos/seed/picsum/300/150?random=1" class="card-img-top" alt="..." />
-                        <div class="card-header d-flex justify-content-between bg-secondary border-0">
-                           <h5 class="card-title">Limonade de Coco</h5>
-                           <p class="card-text"><i class="far fa-clock pe-2"></i>10 min</p>
-                        </div>
-                        <div class="card-body d-flex">
-                           <div class="container p-0">
-                              <div class="row">
-                                 <div class="col">
-                                    <ul class="list-unstyled" style="font-size: 12px">
-                                       <li>Lait de coco : 400ml</li>
-                                       <li>Jus de citron : 2</li>
-                                       <li>Crème de coco : 4 cuillères</li>
-                                       <li>Sucre : 20g</li>
-                                       <li>Glaçons : 2</li>
-                                    </ul>
-                                 </div>
-                                 <div class="col">
-                                    <p class="card-text" style="font-size: 12px">
-                                       Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.
-                                    </p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div> -->
-
-                  <!-- <div class="col">
-                     <div class="card h-100 bg-secondary">
-                        <img src="https://picsum.photos/seed/picsum/300/150?random=1" class="card-img-top" alt="..." />
-                        <div class="card-header d-flex justify-content-between bg-secondary border-0">
-                           <h5 class="card-title">Limonade de Coco</h5>
-                           <p class="card-text"><i class="far fa-clock pe-2"></i>10 min</p>
-                        </div>
-                        <div class="card-body d-flex">
-                           <div class="container p-0">
-                              <div class="row">
-                                 <div class="col">
-                                    <ul class="list-unstyled" style="font-size: 12px">
-                                       <li>Lait de coco : 400ml</li>
-                                       <li>Jus de citron : 2</li>
-                                       <li>Crème de coco : 4 cuillères</li>
-                                       <li>Sucre : 20g</li>
-                                       <li>Glaçons : 2</li>
-                                    </ul>
-                                 </div>
-                                 <div class="col">
-                                    <p class="card-text" style="font-size: 12px">
-                                       Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.
-                                    </p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div> -->
                </div>
             </div>
-         </section>
+         </div>
       </main>
    </body>
 
-   <!-- Bootstrap JS bundle -->
-   <!-- <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-   ></script> -->
-
-   <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script> -->
-
+   <!-- SCRIPTS -->
    <script src="../data/recipes.js "></script>
    <script src="./scripts/factories/cardFactory.js"></script>
-
-   <script src="./scripts/utils/wrapper.js"></script>
-   <script src="./scripts/utils/filterSearch.js"></script>
-
    <script src="./scripts/factories/buttonIngredientFactory.js"></script>
    <script src="./scripts/factories/buttonApplianceFactory.js"></script>
    <script src="./scripts/factories/buttonUstensilFactory.js"></script>
+   <script src="./scripts/factories/tagIngredientFactory.js"></script>
+   <script src="./scripts/factories/tagApplianceFactory.js"></script>
+   <script src="./scripts/factories/tagUstensilFactory.js"></script>
+   <script src="./scripts/utils/wrapper.js"></script>
+
+   <script src="./scripts/utils/filterSimpleSearch.js"></script>
+   <!-- <script src="./scripts/utils/filterSearchIngredients.js"></script> -->
+   <script src="./scripts/utils/filterTag.js"></script>
+   <script src="./scripts/utils/filterAdvancedSearch.js"></script>
+   <script src="./scripts/utils/tagIngredient.js"></script>
+   <script src="./scripts/utils/tagAppliance.js"></script>
+   <script src="./scripts/utils/tagUstensil.js"></script>
 
    <script src="./scripts/pages/index.js"></script>
 </html>
