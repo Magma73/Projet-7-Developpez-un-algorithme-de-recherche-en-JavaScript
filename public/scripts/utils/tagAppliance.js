@@ -8,9 +8,9 @@ function createTagAppliance(currentAppliance) {
 }
 
 // Je créé la fonction de suppression des tags
-function deleteTagUstensil() {
+function deleteTagAppliance() {
    this.remove();
-   selectedTagsUstensil = selectedTagsUstensil.filter((selectedTag) => selectedTag !== this.textContent);
+   selectedTagsAppliance = selectedTagsAppliance.filter((selectedTag) => selectedTag !== this.textContent);
    filterRecipesTags();
 }
 
@@ -38,7 +38,7 @@ function eventCreateTagAppliance() {
          const buttonsTag = document.querySelectorAll(".btn");
 
          // Je supprime le tag
-         buttonsTag.forEach((btn) => btn.addEventListener("click", deleteTagUstensil));
+         buttonsTag.forEach((btn) => btn.addEventListener("click", deleteTagAppliance));
       })
    );
 }
