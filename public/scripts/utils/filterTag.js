@@ -15,9 +15,6 @@ function filterRecipesTags() {
             })
          );
       });
-      // return filteredRecipes;
-      console.log(arrayAdvancedFilterRecipes);
-      //    console.log(recipes);
       // Sinon, je fais mon filtre avancée sur le tableau arrayFilterRecipes
    } else {
       arrayAdvancedFilterRecipes = arrayFilterRecipes.filter((recipe) => {
@@ -34,6 +31,7 @@ function filterRecipesTags() {
          );
       });
    }
+
    // J'appelle les fonctions de création des recettes, des boutons ingrédients, appareils et ustensiles
    displayDataTagFilter(arrayAdvancedFilterRecipes);
    displayListIngredientTagFilter(arrayAdvancedFilterRecipes);
@@ -44,5 +42,4 @@ function filterRecipesTags() {
    eventCreateTagIngredient();
    eventCreateTagAppliance();
    eventCreateTagUstensil();
-
 }

@@ -5,7 +5,6 @@ const searchContainer = document.querySelector(".search-container");
 // J'appelle la fonction filterSearch au clic sur la loupe
 searchBtn.addEventListener("click", filterSearch);
 let arrayFilterRecipes = [];
-console.log(arrayFilterRecipes);
 
 function filterSearch() {
    // Je récupère la valeur saisie dans l'input et je le mets en minuscules

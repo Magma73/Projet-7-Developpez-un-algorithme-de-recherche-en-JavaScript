@@ -277,8 +277,6 @@ async function displayListUstensil(recipes) {
    // Je crée un nouveau tableau avec les ustensils : Array(50) [ (3) […], (1) […], (1) […], (2) […], (3) […], (3) […], (2) […], (2) […], (2) […], (3) […], … ]
    const arrayOfArraysUstensils = recipes.map((recipe) => recipe.ustensils);
 
-   // console.log(arrayOfArraysUstensils);
-
    let arrayValueUstensils = []; // J'initialise mon tableau
    for (const [key, value] of Object.entries(arrayOfArraysUstensils)) {
       // Je récupère les valeurs du tableau arrayOfArraysUstensils

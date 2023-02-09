@@ -30,7 +30,6 @@ function eventCreateTagUstensil() {
             selectedTagsUstensil.push(currentUstensil);
             filterRecipesTags();
          } else if ("likeClicked" in this.dataset === true) {
-            console.log("Déjà cliqué");
             this.setAttribute("aria-label", "Tag déjà créé");
          }
 

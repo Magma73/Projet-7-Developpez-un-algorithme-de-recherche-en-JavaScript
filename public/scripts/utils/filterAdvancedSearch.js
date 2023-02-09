@@ -28,7 +28,6 @@ function filterRecipesAdvanced() {
 
    // J'initialise mon tableau arrayAdvancedFilterRecipes
    let arrayAdvancedFilterRecipes = [];
-   console.log(arrayFilterRecipes);
 
    // Je récupère le tableau des recettes filtrées par la recherche simple : arrayFilterRecipes
    // S'il est égal à 0, je fais mon filtre avancée sur le tableau recipes

@@ -9,9 +9,9 @@ function createTagIngredient(currentIngredient) {
 
 // Je créé la fonction de suppression des tags
 function deleteTagIngredient() {
-    this.remove();
-    selectedTagsIngredients = selectedTagsIngredients.filter(selectedTag => selectedTag !== this.textContent);
-    filterRecipesTags();
+   this.remove();
+   selectedTagsIngredients = selectedTagsIngredients.filter((selectedTag) => selectedTag !== this.textContent);
+   filterRecipesTags();
 }
 
 //  Je créé les boutons tags ingrédients au clic
@@ -28,12 +28,10 @@ function eventCreateTagIngredient() {
             this.setAttribute("aria-label", "Tag ajouté");
             createTagIngredient(currentIngredient);
             selectedTagsIngredients.push(currentIngredient);
-            console.log(selectedTagsUstensil);
             filterRecipesTags();
             // console.log(selectedTagsIngredients);
             // console.log(currentIngredient);
          } else if ("likeClicked" in this.dataset === true) {
-            console.log("Déjà cliqué");
             this.setAttribute("aria-label", "Tag déjà créé");
          }
 
@@ -42,9 +40,6 @@ function eventCreateTagIngredient() {
 
          // Je supprime le tag
          buttonsTag.forEach((btn) => btn.addEventListener("click", deleteTagIngredient));
-
       })
    );
 }
-
-
