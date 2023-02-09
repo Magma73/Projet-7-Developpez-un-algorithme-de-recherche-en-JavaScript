@@ -21,7 +21,7 @@ function eventCreateTagIngredient() {
       btn.addEventListener("click", function () {
          // Je récupère le texte de l'ingrédient
          const currentIngredient = this.textContent;
-
+         console.log(currentIngredient);
          // Je créé le bouton tag
          if ("likeClicked" in this.dataset === false) {
             this.dataset.likeClicked = "clicked";

@@ -1,9 +1,12 @@
+// Je créé les constantes des inputs ingrédients, appareils et ustensiles
 const searchForm = document.querySelector("#search-input");
 const searchBtn = document.querySelector("#search-addon");
 const searchContainer = document.querySelector(".search-container");
 
 // J'appelle la fonction filterSearch au clic sur la loupe
 searchBtn.addEventListener("click", filterSearch);
+//J'initialise le tableau arrayFilterRecipes
+let arrayFilterRecipes = [];
 
 function filterSearch() {
    // Je récupère la valeur saisie dans l'input et je le mets en minuscules
@@ -26,12 +29,20 @@ function filterSearch() {
       eventCreateTagIngredient();
       eventCreateTagAppliance();
       eventCreateTagUstensil();
+      // J'affiche le message d'erreur
+      searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
+      searchContainer.setAttribute("data-error-visible", "true");
+      // Je réinitialise mon tableau de recettes filtrées à 0
+      arrayFilterRecipes = [];
    }
 }
 
 function filterRecipes(valueSearch) {
    const wordToFind = valueSearch;
-   const arrayFilterRecipes = recipes.filter((recipe) => {
+   // Je réinitialise mon tableau de recettes filtrées à 0
+   arrayFilterRecipes = [];
+
+   arrayFilterRecipes = recipes.filter((recipe) => {
       // Je teste chaque recette
       return (
          //Je recherche le mot dans le titre
