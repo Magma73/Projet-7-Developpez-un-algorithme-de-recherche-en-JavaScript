@@ -29,8 +29,6 @@ function eventCreateTagIngredient() {
             createTagIngredient(currentIngredient);
             selectedTagsIngredients.push(currentIngredient);
             filterRecipesTags();
-            // console.log(selectedTagsIngredients);
-            // console.log(currentIngredient);
          } else if ("likeClicked" in this.dataset === true) {
             this.setAttribute("aria-label", "Tag déjà créé");
          }
