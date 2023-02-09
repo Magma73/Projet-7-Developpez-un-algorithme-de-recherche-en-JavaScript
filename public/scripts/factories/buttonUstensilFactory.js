@@ -7,7 +7,6 @@ function buttonUstensilFactory(datas) {
       // Création des éléments wrapper option ustensils (li)
       const wrapperOption = document.createElement("li");
       wrapperOption.className = "wrapper__option wrapper__option--ustensil";
-      currentOption++;
       wrapperOption.textContent = ustensil;
 
       return wrapperOption;
