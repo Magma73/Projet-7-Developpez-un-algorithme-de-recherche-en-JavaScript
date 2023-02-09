@@ -103,6 +103,13 @@
   display: none;
 }
 
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .wrapper {
   display: flex;
   align-items: center;
