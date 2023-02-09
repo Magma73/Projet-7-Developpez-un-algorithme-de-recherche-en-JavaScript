@@ -18,11 +18,14 @@ function filterSearch() {
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
       searchContainer.setAttribute("data-error-visible", "true");
-   } else if (nbCaracteres === 0){
+   } else if (nbCaracteres === 0) {
       displayData(recipes);
       displayButtonIngredient(recipes);
       displayButtonAppliance(recipes);
       displayButtonUstensil(recipes);
+      eventCreateTagIngredient();
+      eventCreateTagAppliance();
+      eventCreateTagUstensil();
    }
 }
 
@@ -40,17 +43,16 @@ function filterRecipes(valueSearch) {
       );
    });
 
-   // J'appelle la fonction  de création des recettes filtrées
+   // J'appelle les fonctions de création des recettes filtrées et des listes ingrédients, appareils et ustensiles
    displayData(arrayFilterRecipes);
-
-   // J'appelle la fonction de filtre de la recherche avancée par ingrédients
    displayButtonIngredient(arrayFilterRecipes);
-
-   // J'appelle la fonction de filtre de la recherche avancée par appareil
    displayButtonAppliance(arrayFilterRecipes);
-
-   // J'appelle la fonction de filtre de la recherche avancée par ustensile
    displayButtonUstensil(arrayFilterRecipes);
+
+   // J'appelle les fonctions de création des tags
+   eventCreateTagIngredient();
+   eventCreateTagAppliance();
+   eventCreateTagUstensil();
 
    if (arrayFilterRecipes.length === 0) {
       // J'affiche le message d'erreur
