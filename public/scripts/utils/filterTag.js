@@ -36,6 +36,13 @@ function filterRecipesTags() {
    }
    // J'appelle les fonctions de création des recettes, des boutons ingrédients, appareils et ustensiles
    displayDataTagFilter(arrayAdvancedFilterRecipes);
-   displayListIngredientTagFilter(arrayAdvancedFilterRecipes, selectedTagsIngredients);
+   displayListIngredientTagFilter(arrayAdvancedFilterRecipes);
+   displayListApplianceTagFilter(arrayAdvancedFilterRecipes);
+   displayListUstensilTagFilter(arrayAdvancedFilterRecipes);
+
+   // J'appelle les fonctions de création des tags
+   eventCreateTagIngredient();
+   eventCreateTagAppliance();
+   eventCreateTagUstensil();
 
 }

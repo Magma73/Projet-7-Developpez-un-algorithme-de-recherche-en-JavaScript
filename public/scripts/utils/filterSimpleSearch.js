@@ -25,6 +25,9 @@ function filterSearch() {
       displayListIngredient(recipes);
       displayListAppliance(recipes);
       displayListUstensil(recipes);
+      eventCreateTagIngredient();
+      eventCreateTagAppliance();
+      eventCreateTagUstensil();
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
       searchContainer.setAttribute("data-error-visible", "true");
@@ -73,6 +76,9 @@ function filterRecipes(valueSearch) {
    displayListIngredientSimpleFilter(arrayFilterRecipes);
    displayListApplianceSimpleFilter(arrayFilterRecipes);
    displayListUstensilSimpleFilter(arrayFilterRecipes);
+   eventCreateTagIngredient();
+   eventCreateTagAppliance();
+   eventCreateTagUstensil();
 
    // J'affiche un message d'erreur si aucune recette ne correspond
    if (arrayFilterRecipes.length === 0) {

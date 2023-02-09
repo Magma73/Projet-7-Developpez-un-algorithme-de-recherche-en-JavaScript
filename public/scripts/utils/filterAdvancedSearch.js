@@ -66,6 +66,9 @@ function filterRecipesAdvanced() {
    displayListIngredientAdvancedFilter(arrayAdvancedFilterRecipes, searchValueIngredient);
    displayListApplianceAdvancedFilter(arrayAdvancedFilterRecipes, searchValueAppareil);
    displayListUstensilAdvancedFilter(arrayAdvancedFilterRecipes, searchValueUstensil);
+   eventCreateTagIngredient();
+   eventCreateTagAppliance();
+   eventCreateTagUstensil();
 
    // J'affiche des messages d'erreur pour chaque ingrédient
    const wrapperHiddenIngredient = document.querySelector(".wrapper__hidden--ingredient");

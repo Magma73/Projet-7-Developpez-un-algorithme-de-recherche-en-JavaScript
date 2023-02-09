@@ -105,7 +105,6 @@ async function displayDataTagFilter(arrayAdvancedFilterRecipes) {
    });
 }
 
-
 // Fonction de création da la liste d'ingrédient : bouton ingrédient
 async function displayListIngredient(recipes) {
    // Je réinitialise le container des ingrédients
@@ -174,15 +173,12 @@ async function displayListIngredientTagFilter(arrayAdvancedFilterRecipes) {
    // Je réinitialise le container des ingrédients
    const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
    wrapperListIngredient.innerHTML = "";
-   // const wordToFind = searchValueIngredient;
-   // console.log(wordToFind);
 
    // Je modifie le tableau d'objets ingrédients afin de supprimer les doublons
    const arrayFilterIngredients = arrayAdvancedFilterRecipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
    const arrayFilterIngredientsLowerCase = arrayFilterIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
    const uniqueFilterIngredients = Array.from(new Set(arrayFilterIngredientsLowerCase)); // Je supprime les doublons
    const uniqueFilterIngredientsSort = uniqueFilterIngredients.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
-   // const valueFilterIngredient = uniqueFilterIngredientsSort.filter((ingredients) => ingredients.includes(wordToFind));
 
    // Je génère chaque ingrédient
    uniqueFilterIngredientsSort.forEach((ingredient) => {
@@ -244,14 +240,31 @@ async function displayListApplianceAdvancedFilter(arrayAdvancedFilterRecipes, se
    const uniqueFilterAppliancesSort = uniqueFilterAppliances.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
    const valueFilterAppliance = uniqueFilterAppliancesSort.filter((appliance) => appliance.includes(wordToFind));
 
-   // console.log(valueFilterAppliance);
-
    // Je génère chaque appareil
    valueFilterAppliance.forEach((appliance) => {
       const wrapperListAppareil = document.querySelector(".wrapper__list--appareil");
       const appareilWrapperModel = buttonApplianceFactory(appliance);
       const appareilWrapperCardDOM = appareilWrapperModel.getApplianceWrapperDOM();
       wrapperListAppareil.appendChild(appareilWrapperCardDOM);
+   });
+}
+// Fonction de création da la liste d'appareil : tags appareils
+async function displayListApplianceTagFilter(arrayAdvancedFilterRecipes) {
+   // Je réinitialise le container des appareils
+   const wrapperListAppliance = document.querySelector(".wrapper__list--appareil");
+   wrapperListAppliance.innerHTML = "";
+
+   // Je modifie le tableau d'objets appareils afin de supprimer les doublons
+   const arrayFilterAppliance = arrayAdvancedFilterRecipes.map((recipe) => recipe.appliance.toLowerCase()); // Je crée un nouveau tableau avec les appareils et je mets tout en miniscules
+   const uniqueFilterAppliance = Array.from(new Set(arrayFilterAppliance)); // Je supprime les doublons
+   const uniqueFilterApplianceSort = uniqueFilterAppliance.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
+
+   // Je génère chaque appareil
+   uniqueFilterApplianceSort.forEach((appareil) => {
+      const wrapperListAppliance = document.querySelector(".wrapper__list--appareil");
+      const applianceWrapperModel = buttonApplianceFactory(appareil);
+      const applianceWrapperCardDOM = applianceWrapperModel.getApplianceWrapperDOM();
+      wrapperListAppliance.appendChild(applianceWrapperCardDOM);
    });
 }
 
@@ -317,7 +330,7 @@ async function displayListUstensilSimpleFilter(arrayFilterRecipes) {
 
 // Fonction de création da la liste des ustensiles : recherche avancée
 async function displayListUstensilAdvancedFilter(arrayAdvancedFilterRecipes, searchValueUstensil) {
-   // Je réinitialise le container des appareils
+   // Je réinitialise le container des ustensiles
    const wrapperListUstensil = document.querySelector(".wrapper__list--ustensil");
    wrapperListUstensil.innerHTML = "";
    const wordToFind = searchValueUstensil;
@@ -345,6 +358,35 @@ async function displayListUstensilAdvancedFilter(arrayAdvancedFilterRecipes, sea
       wrapperListUstensil.appendChild(ustensilWrapperCardDOM);
    });
 }
+// Fonction de création da la liste d'ustensiles : tags ustensiles
+async function displayListUstensilTagFilter(arrayAdvancedFilterRecipes) {
+   // Je réinitialise le container des ustensiles
+   const wrapperListUstensil = document.querySelector(".wrapper__list--ustensil");
+   wrapperListUstensil.innerHTML = "";
+
+   // Je crée un nouveau tableau avec les ustensils
+   const arrayOfArraysUstensils = arrayAdvancedFilterRecipes.map((recipe) => recipe.ustensils);
+
+   let arrayValueUstensils = []; // J'initialise mon tableau
+   for (const [key, value] of Object.entries(arrayOfArraysUstensils)) {
+      // Je récupère les valeurs du tableau arrayOfArraysUstensils
+      const ustensil = `${value}`;
+      arrayValueUstensils.push(ustensil); // Je stocke les valeurs dans mon tableau arrayValueUstensils
+   }
+
+   const arrayFilterUstensils = arrayValueUstensils.join(",").split(","); // Je supprime les virgules pour que chaque ustensile soit un élément du tableau
+   const arrayFilterUstensilsLowerCase = arrayFilterUstensils.map((recipe) => recipe.toLowerCase()); // Je mets tout en minuscules
+   const uniqueFilterUstensils = Array.from(new Set(arrayFilterUstensilsLowerCase)); // Je supprime les doublons
+   const uniqueFilterUstensilsSort = uniqueFilterUstensils.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
+
+   // Je génère chaque ustensile
+   uniqueFilterUstensilsSort.forEach((ustensil) => {
+      const wrapperListUstensil = document.querySelector(".wrapper__list--ustensil");
+      const ustensilWrapperModel = buttonUstensilFactory(ustensil);
+      const ustensilWrapperCardDOM = ustensilWrapperModel.getUstensilWrapperDOM();
+      wrapperListUstensil.appendChild(ustensilWrapperCardDOM);
+   });
+}
 
 async function init() {
    // Récupère les datas des recettes
@@ -353,33 +395,10 @@ async function init() {
    displayListAppliance(recipes);
    displayListUstensil(recipes);
 
+   // J'appelle les fonctions de création des tags
    eventCreateTagIngredient();
    eventCreateTagAppliance();
    eventCreateTagUstensil();
-   // Je créé les boutons tags ingrédients au clic
-   // const ingredients = document.querySelectorAll(".wrapper__option");
-   // ingredients.forEach((btn) =>
-   //    btn.addEventListener("click", function () {
-   //       // Je récupère le texte de l'ingrédient
-   //       const currentIngredient = this.textContent;
-
-   //       // Je créé le bouton tag
-   //       if ("likeClicked" in this.dataset === false) {
-   //          this.dataset.likeClicked = "clicked";
-   //          this.setAttribute("aria-label", "Tag ajouté");
-   //          createTagIngredient(currentIngredient);
-   //       } else if ("likeClicked" in this.dataset === true) {
-   //          console.log("Déjà cliqué");
-   //          this.setAttribute("aria-label", "Tag déjà créé");
-   //       }
-
-   //       // Je récupère tous les boutons tag
-   //       const buttonsTag = document.querySelectorAll(".btn");
-
-   //       // Je supprime le tag
-   //       buttonsTag.forEach((btn) => btn.addEventListener("click", deleteTagIngredient));
-   //    })
-   // );
 }
 
 init();
