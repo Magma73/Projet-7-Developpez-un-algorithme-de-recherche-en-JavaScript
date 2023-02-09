@@ -20,9 +20,9 @@ function filterSearch() {
       searchContainer.setAttribute("data-error-visible", "true");
    } else if (nbCaracteres === 0) {
       displayData(recipes);
-      displayButtonIngredient(recipes);
-      displayButtonAppliance(recipes);
-      displayButtonUstensil(recipes);
+      displayListIngredient(recipes);
+      displayListAppliance(recipes);
+      displayListUstensil(recipes);
       eventCreateTagIngredient();
       eventCreateTagAppliance();
       eventCreateTagUstensil();
@@ -44,10 +44,10 @@ function filterRecipes(valueSearch) {
    });
 
    // J'appelle les fonctions de création des recettes filtrées et des listes ingrédients, appareils et ustensiles
-   displayData(arrayFilterRecipes);
-   displayButtonIngredient(arrayFilterRecipes);
-   displayButtonAppliance(arrayFilterRecipes);
-   displayButtonUstensil(arrayFilterRecipes);
+   displayDataSimpleFilter(arrayFilterRecipes);
+   displayListIngredientSimpleFilter(arrayFilterRecipes);
+   displayListApplianceSimpleFilter(arrayFilterRecipes);
+   displayListUstensilSimpleFilter(arrayFilterRecipes);
 
    // J'appelle les fonctions de création des tags
    eventCreateTagIngredient();
