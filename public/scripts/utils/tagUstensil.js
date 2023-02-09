@@ -9,8 +9,10 @@ function createTagUstensil(currentUstensil) {
 
  // Je créé la fonction de suppression des tags
  function deleteTagUstensil() {
-    this.remove();
- }
+   this.remove();
+   selectedTagsUstensil = selectedTagsUstensil.filter(selectedTag => selectedTag !== this.textContent);
+   filterRecipesTags();
+}
 
  //  Je créé les boutons tags appareils au clic
  function eventCreateTagUstensil() {
@@ -26,7 +28,6 @@ function createTagUstensil(currentUstensil) {
              this.setAttribute("aria-label", "Tag ajouté");
              createTagUstensil(currentUstensil);
              selectedTagsUstensil.push(currentUstensil);
-             console.log(currentUstensil);
              filterRecipesTags();
           } else if ("likeClicked" in this.dataset === true) {
              console.log("Déjà cliqué");
