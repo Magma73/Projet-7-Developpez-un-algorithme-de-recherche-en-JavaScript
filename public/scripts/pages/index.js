@@ -298,7 +298,7 @@ async function displayListUstensilSimpleFilter(arrayFilterRecipes) {
 
    // Je crée un nouveau tableau avec les ustensils
    const arrayOfArraysUstensils = arrayFilterRecipes.map((recipe) => recipe.ustensils.map((ustensil) => ustensil.toLowerCase())).flat();
-   const uniqueUstensils = Array.from(new Set(arrayOfArraysUstensils)); // Je supprime les doublons : Array(11) [ "blender", "saladier", "cocotte", "cuiseur de riz", "four", "casserole", "poêle à crêpe", "sauteuse", "mixer", "poêle", … ]
+   const uniqueUstensils = Array.from(new Set(arrayOfArraysUstensils)); // Je supprime les doublons
    const uniqueUstensilsSort = uniqueUstensils.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
 
    // Je génère chaque ustensile
@@ -319,7 +319,7 @@ async function displayListUstensilAdvancedFilter(arrayAdvancedFilterRecipes, sea
 
    // Je crée un nouveau tableau avec les ustensils
    const arrayOfArraysUstensils = arrayAdvancedFilterRecipes.map((recipe) => recipe.ustensils.map((ustensil) => ustensil.toLowerCase())).flat();
-   const uniqueUstensils = Array.from(new Set(arrayOfArraysUstensils)); // Je supprime les doublons : Array(11) [ "blender", "saladier", "cocotte", "cuiseur de riz", "four", "casserole", "poêle à crêpe", "sauteuse", "mixer", "poêle", … ]
+   const uniqueUstensils = Array.from(new Set(arrayOfArraysUstensils)); // Je supprime les doublons
    const uniqueUstensilsSort = uniqueUstensils.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
    const valueFilterUstensil = uniqueUstensilsSort.filter((ustensil) => ustensil.includes(wordToFind));
 
@@ -337,9 +337,9 @@ async function displayListUstensilTagFilter(arrayAdvancedFilterRecipes, selected
    const wrapperListUstensil = document.querySelector(".wrapper__list--ustensil");
    wrapperListUstensil.innerHTML = "";
 
-   // Je crée un nouveau tableau avec les ustensils : Array(122) [ "moule à gateaux", "casserole", "saladier", "couteau", "fouet", "couteau", "économe", "fouet", "saladier", "plaque de cuisson", … ]
+   // Je crée un nouveau tableau avec les ustensils
    const arrayOfArraysUstensils = arrayAdvancedFilterRecipes.map((recipe) => recipe.ustensils.map((ustensil) => ustensil.toLowerCase())).flat();
-   const uniqueUstensils = Array.from(new Set(arrayOfArraysUstensils)); // Je supprime les doublons : Array(11) [ "blender", "saladier", "cocotte", "cuiseur de riz", "four", "casserole", "poêle à crêpe", "sauteuse", "mixer", "poêle", … ]
+   const uniqueUstensils = Array.from(new Set(arrayOfArraysUstensils)); // Je supprime les doublons
    const uniqueUstensilsSort = uniqueUstensils.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
    const listUstensiltWithoutTagsUstensil = uniqueUstensilsSort.filter((ustensil) => !selectedTagsUstensil.includes(ustensil)); // J'enlève les tags déjà cliqués
 

@@ -23,15 +23,13 @@ function eventCreateTagAppliance() {
          const currentAppliance = this.textContent;
 
          // Je créé le bouton tag
-         if ("likeClicked" in this.dataset === false) {
-            this.dataset.likeClicked = "clicked";
-            this.setAttribute("aria-label", "Tag ajouté");
-            createTagAppliance(currentAppliance);
-            selectedTagsAppliance.push(currentAppliance);
-            filterRecipesTags();
-         } else if ("likeClicked" in this.dataset === true) {
-            this.setAttribute("aria-label", "Tag déjà créé");
-         }
+         createTagAppliance(currentAppliance);
+
+         // J'ajoute le nom dans le tableau selectedTagsAppliance
+         selectedTagsAppliance.push(currentAppliance);
+
+         // J'appelle la fonction de filtre des recettes par tag
+         filterRecipesTags();
 
          // Je récupère tous les boutons tag
          const buttonsTag = document.querySelectorAll(".btn");

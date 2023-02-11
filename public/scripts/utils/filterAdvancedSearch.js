@@ -29,9 +29,6 @@ function filterRecipesAdvanced() {
    const appareilToFind = searchValueAppareil.toLowerCase();
    const ustensilToFind = searchValueUstensil.toLowerCase();
 
-   // // J'initialise mon tableau arrayAdvancedFilterRecipes
-   // let arrayAdvancedFilterRecipes = [];
-
    // Je réinitialise mon tableau à 0
    arrayAdvancedFilterRecipes = [];
 
@@ -67,7 +64,7 @@ function filterRecipesAdvanced() {
       });
    }
 
-   
+
    localStorage.setItem("arrayAdvancedFilterRecipes", JSON.stringify(arrayAdvancedFilterRecipes));
 
       // J'appelle les fonctions de création des recettes, des boutons ingrédients, appareils et ustensiles
