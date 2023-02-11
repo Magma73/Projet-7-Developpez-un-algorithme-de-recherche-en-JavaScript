@@ -169,7 +169,7 @@ async function displayListIngredientAdvancedFilter(arrayAdvancedFilterRecipes, s
    });
 }
 // Fonction de création da la liste d'ingrédient : tags ingrédients
-async function displayListIngredientTagFilter(arrayAdvancedFilterRecipes) {
+async function displayListIngredientTagFilter(arrayAdvancedFilterRecipes, selectedTagsIngredients) {
    // Je réinitialise le container des ingrédients
    const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
    wrapperListIngredient.innerHTML = "";
@@ -179,9 +179,10 @@ async function displayListIngredientTagFilter(arrayAdvancedFilterRecipes) {
    const arrayFilterIngredientsLowerCase = arrayFilterIngredients.map((item) => item.ingredient.toLowerCase()); // Je mets tout en minuscules
    const uniqueFilterIngredients = Array.from(new Set(arrayFilterIngredientsLowerCase)); // Je supprime les doublons
    const uniqueFilterIngredientsSort = uniqueFilterIngredients.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
+   const listIngredientWithoutTagsIngredients = uniqueFilterIngredientsSort.filter(ingredient => !selectedTagsIngredients.includes(ingredient)); // J'enlève les tags déjà cliqués
 
    // Je génère chaque ingrédient
-   uniqueFilterIngredientsSort.forEach((ingredient) => {
+   listIngredientWithoutTagsIngredients.forEach((ingredient) => {
       const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
       const ingredientWrapperModel = buttonIngredientFactory(ingredient);
       const ingredientWrapperCardDOM = ingredientWrapperModel.getIngredientWrapperDOM();
@@ -249,7 +250,7 @@ async function displayListApplianceAdvancedFilter(arrayAdvancedFilterRecipes, se
    });
 }
 // Fonction de création da la liste d'appareil : tags appareils
-async function displayListApplianceTagFilter(arrayAdvancedFilterRecipes) {
+async function displayListApplianceTagFilter(arrayAdvancedFilterRecipes, selectedTagsAppliance) {
    // Je réinitialise le container des appareils
    const wrapperListAppliance = document.querySelector(".wrapper__list--appareil");
    wrapperListAppliance.innerHTML = "";
@@ -258,9 +259,10 @@ async function displayListApplianceTagFilter(arrayAdvancedFilterRecipes) {
    const arrayFilterAppliance = arrayAdvancedFilterRecipes.map((recipe) => recipe.appliance.toLowerCase()); // Je crée un nouveau tableau avec les appareils et je mets tout en miniscules
    const uniqueFilterAppliance = Array.from(new Set(arrayFilterAppliance)); // Je supprime les doublons
    const uniqueFilterApplianceSort = uniqueFilterAppliance.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
+   const listAppliancetWithoutTagsAppliance = uniqueFilterApplianceSort.filter(appliance => !selectedTagsAppliance.includes(appliance)); // J'enlève les tags déjà cliqués
 
    // Je génère chaque appareil
-   uniqueFilterApplianceSort.forEach((appareil) => {
+   listAppliancetWithoutTagsAppliance.forEach((appareil) => {
       const wrapperListAppliance = document.querySelector(".wrapper__list--appareil");
       const applianceWrapperModel = buttonApplianceFactory(appareil);
       const applianceWrapperCardDOM = applianceWrapperModel.getApplianceWrapperDOM();
@@ -276,17 +278,25 @@ async function displayListUstensil(recipes) {
 
    // Je crée un nouveau tableau avec les ustensils : Array(50) [ (3) […], (1) […], (1) […], (2) […], (3) […], (3) […], (2) […], (2) […], (2) […], (3) […], … ]
    const arrayOfArraysUstensils = recipes.map((recipe) => recipe.ustensils);
+   console.log(arrayOfArraysUstensils);
+   const arrayUstensils = arrayOfArraysUstensils.join(",").split(",");
+   console.log(arrayUstensils);
 
-   let arrayValueUstensils = []; // J'initialise mon tableau
-   for (const [key, value] of Object.entries(arrayOfArraysUstensils)) {
-      // Je récupère les valeurs du tableau arrayOfArraysUstensils
-      const ustensil = `${value}`;
-      arrayValueUstensils.push(ustensil); // Je stocke les valeurs dans mon tableau arrayValueUstensils : Array(50) [ "cuillère à Soupe,verres,presse citron", "presse citron", "couteau", "saladier,passoire", "moule à tarte,râpe à fromage,couteau", "moule à tarte,saladier,fourchette", "moule à tartelettes (6),casserole", "moule à gateaux,casserole", "cuillère en bois,couteau", "plat à gratin,couteau,Économe", … ]
-   }
-   const arrayUstensils = arrayValueUstensils.join(",").split(","); // Je supprime les virgules pour que chaque ustensile soit un élément du tableau : Array(122) [ "cuillère à Soupe", "verres", "presse citron", "presse citron", "couteau", "saladier", "passoire", "moule à tarte", "râpe à fromage", "couteau", … ]
-   const arrayUstensilsLowerCase = arrayUstensils.map((recipe) => recipe.toLowerCase()); // Je mets tout en minuscules
-   const uniqueUstensils = Array.from(new Set(arrayUstensilsLowerCase)); // Je supprime les doublons : Array(25) [ "cuillère à soupe", "verres", "presse citron", "couteau", "saladier", "passoire", "moule à tarte", "râpe à fromage", "fourchette", "moule à tartelettes (6)", … ]
+   const uniqueUstensils = Array.from(new Set(arrayUstensils)); // Je supprime les doublons : Array(11) [ "blender", "saladier", "cocotte", "cuiseur de riz", "four", "casserole", "poêle à crêpe", "sauteuse", "mixer", "poêle", … ]
+   console.log(uniqueUstensils);
    const uniqueUstensilsSort = uniqueUstensils.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
+
+
+   // let arrayValueUstensils = []; // J'initialise mon tableau
+   // for (const [key, value] of Object.entries(arrayOfArraysUstensils)) {
+   //    // Je récupère les valeurs du tableau arrayOfArraysUstensils
+   //    const ustensil = `${value}`;
+   //    arrayValueUstensils.push(ustensil); // Je stocke les valeurs dans mon tableau arrayValueUstensils : Array(50) [ "cuillère à Soupe,verres,presse citron", "presse citron", "couteau", "saladier,passoire", "moule à tarte,râpe à fromage,couteau", "moule à tarte,saladier,fourchette", "moule à tartelettes (6),casserole", "moule à gateaux,casserole", "cuillère en bois,couteau", "plat à gratin,couteau,Économe", … ]
+   // }
+   // const arrayUstensils = arrayValueUstensils.join(",").split(","); // Je supprime les virgules pour que chaque ustensile soit un élément du tableau : Array(122) [ "cuillère à Soupe", "verres", "presse citron", "presse citron", "couteau", "saladier", "passoire", "moule à tarte", "râpe à fromage", "couteau", … ]
+   // const arrayUstensilsLowerCase = arrayUstensils.map((recipe) => recipe.toLowerCase()); // Je mets tout en minuscules
+   // const uniqueUstensils = Array.from(new Set(arrayUstensilsLowerCase)); // Je supprime les doublons : Array(25) [ "cuillère à soupe", "verres", "presse citron", "couteau", "saladier", "passoire", "moule à tarte", "râpe à fromage", "fourchette", "moule à tartelettes (6)", … ]
+   // const uniqueUstensilsSort = uniqueUstensils.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
 
    // Je génère chaque ustensile
    uniqueUstensilsSort.forEach((ustensil) => {
@@ -295,6 +305,15 @@ async function displayListUstensil(recipes) {
       const ustensilWrapperCardDOM = ustensilWrapperModel.getUstensilWrapperDOM();
       wrapperListUstensil.appendChild(ustensilWrapperCardDOM);
    });
+   // const arrayOfUstensils = recipes.map(recipe => recipe.ustensils).flat(); // flatten array of ustensils
+   // const uniqueUstensils = [...new Set(arrayOfUstensils)].map(ustensil => ustensil.toLowerCase()).sort(); // Je créé un nouveau tableau avec les ustensiles et trie par ordre alphabétique
+   // const wrapperListUstensil = document.querySelector(".wrapper__list--ustensil");
+   // wrapperListUstensil.innerHTML = ""; // clear the ustensil container
+
+   // uniqueUstensils.forEach(ustensil => {
+   //    const ustensilWrapperCardDOM = buttonUstensilFactory(ustensil).getUstensilWrapperDOM(); // create DOM node for each ustensil
+   //    wrapperListUstensil.appendChild(ustensilWrapperCardDOM);
+   // });
 }
 
 // Fonction de création de la liste des ustensiles : recherche simple
@@ -357,7 +376,7 @@ async function displayListUstensilAdvancedFilter(arrayAdvancedFilterRecipes, sea
    });
 }
 // Fonction de création da la liste d'ustensiles : tags ustensiles
-async function displayListUstensilTagFilter(arrayAdvancedFilterRecipes) {
+async function displayListUstensilTagFilter(arrayAdvancedFilterRecipes, selectedTagsUstensil) {
    // Je réinitialise le container des ustensiles
    const wrapperListUstensil = document.querySelector(".wrapper__list--ustensil");
    wrapperListUstensil.innerHTML = "";
@@ -376,9 +395,10 @@ async function displayListUstensilTagFilter(arrayAdvancedFilterRecipes) {
    const arrayFilterUstensilsLowerCase = arrayFilterUstensils.map((recipe) => recipe.toLowerCase()); // Je mets tout en minuscules
    const uniqueFilterUstensils = Array.from(new Set(arrayFilterUstensilsLowerCase)); // Je supprime les doublons
    const uniqueFilterUstensilsSort = uniqueFilterUstensils.sort((a, b) => a.localeCompare(b, "fr")); // Je trie par ordre alphabétique
+   const listUstensiltWithoutTagsUstensil = uniqueFilterUstensilsSort.filter(ustensil => !selectedTagsUstensil.includes(ustensil)); // J'enlève les tags déjà cliqués
 
    // Je génère chaque ustensile
-   uniqueFilterUstensilsSort.forEach((ustensil) => {
+   listUstensiltWithoutTagsUstensil.forEach((ustensil) => {
       const wrapperListUstensil = document.querySelector(".wrapper__list--ustensil");
       const ustensilWrapperModel = buttonUstensilFactory(ustensil);
       const ustensilWrapperCardDOM = ustensilWrapperModel.getUstensilWrapperDOM();
