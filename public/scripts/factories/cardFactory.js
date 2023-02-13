@@ -1,5 +1,5 @@
 function recetteCardFactory(datas) {
-   const { id, name, photo, ingredients, time, description, appliance, ustensils } = datas;
+   const { id, name, photo, servings, ingredients, time, description, appliance, ustensils } = datas;
 
    const picture = `./assets/img/${photo}`;
 
@@ -125,5 +125,5 @@ function recetteCardFactory(datas) {
       return col;
    }
    // return { name,  id, city, country, tagline, price, picture, getUserCardDOM }
-   return { id, name, photo, ingredients, time, description, appliance, ustensils, getRecetteCardDOM };
+   return { id, name, photo, servings, ingredients, time, description, appliance, ustensils, getRecetteCardDOM };
 }
