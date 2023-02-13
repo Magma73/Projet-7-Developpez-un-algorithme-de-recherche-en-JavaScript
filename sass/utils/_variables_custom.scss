@@ -1,40 +1,34 @@
 /***COLORS****/
-// $color-primary: #901C1C;
-// $color-secondary: #D3573C;
-// $color-third: #757575;
-// $color-white: #FFFFFF;
-// $color-black: #000000;
+$ingredient: #3282f7;
+$appareil: #68d9a4;
+$ustensil: #ed6454;
 
-$ingredient:#3282F7;
-$appareil: #68D9A4;
-$ustensil: #ED6454;
-
-$secondary:#E7E7E7;
+$secondary: #e7e7e7;
 
 .btn-ingredient {
-    background:$ingredient!important;
-    font-size:18px!important;
+   background: $ingredient !important;
+   font-size: 18px !important;
 }
 
 .btn-appareil {
-    background:$appareil!important;
-    font-size:18px!important;
+   background: $appareil !important;
+   font-size: 18px !important;
 }
 
 .btn-ustensil {
-    background:$ustensil!important;
-    font-size:18px!important;
+   background: $ustensil !important;
+   font-size: 18px !important;
 }
 
 $grid-breakpoints: (
-  // Extra small screen / phone
-  xs: 0,
-  // Small screen / phone
-  sm: 576px,
-  // Medium screen / tablet
-  md: 768px,
-  // Large screen / desktop
-  lg: 992px,
-  // Extra large screen / wide desktop
-  xl: 1200px
+   // Extra small screen / phone
+   xs: 0,
+   // Small screen / phone
+   sm: 576px,
+   // Medium screen / tablet
+   md: 768px,
+   // Large screen / desktop
+   lg: 992px,
+   // Extra large screen / wide desktop
+   xl: 1200px
 );
