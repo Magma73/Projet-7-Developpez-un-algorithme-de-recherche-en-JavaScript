@@ -21,13 +21,16 @@ searchInputUstensil.addEventListener("input", function () {
    filterRecipesAdvanced();
 });
 
+// J'initialise mon tableau arrayAdvancedFilterRecipes
+let arrayAdvancedFilterRecipes = [];
+
 function filterRecipesAdvanced() {
    const ingredientToFind = searchValueIngredient.toLowerCase();
    const appareilToFind = searchValueAppareil.toLowerCase();
    const ustensilToFind = searchValueUstensil.toLowerCase();
 
-   // J'initialise mon tableau arrayAdvancedFilterRecipes
-   let arrayAdvancedFilterRecipes = [];
+   // Je réinitialise mon tableau à 0
+   arrayAdvancedFilterRecipes = [];
 
    // Je récupère le tableau des recettes filtrées par la recherche simple : arrayFilterRecipes
    // S'il est égal à 0, je fais mon filtre avancée sur le tableau recipes
@@ -60,6 +63,10 @@ function filterRecipesAdvanced() {
          );
       });
    }
+
+   // Je stocke mon tableau arrayAdvancedFilterRecipes
+   localStorage.setItem("arrayAdvancedFilterRecipes", JSON.stringify(arrayAdvancedFilterRecipes));
+
    // J'appelle les fonctions de création des recettes, des boutons ingrédients, appareils et ustensiles
    displayDataAdvancedFilter(arrayAdvancedFilterRecipes);
    displayListIngredientAdvancedFilter(arrayAdvancedFilterRecipes, searchValueIngredient);
