@@ -64,10 +64,10 @@ function filterRecipesAdvanced() {
       });
    }
 
-
+   // Je stocke mon tableau arrayAdvancedFilterRecipes
    localStorage.setItem("arrayAdvancedFilterRecipes", JSON.stringify(arrayAdvancedFilterRecipes));
 
-      // J'appelle les fonctions de création des recettes, des boutons ingrédients, appareils et ustensiles
+   // J'appelle les fonctions de création des recettes, des boutons ingrédients, appareils et ustensiles
    displayDataAdvancedFilter(arrayAdvancedFilterRecipes);
    displayListIngredientAdvancedFilter(arrayAdvancedFilterRecipes, searchValueIngredient);
    displayListApplianceAdvancedFilter(arrayAdvancedFilterRecipes, searchValueAppareil);
