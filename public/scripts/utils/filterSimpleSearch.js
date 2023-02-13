@@ -7,8 +7,9 @@ searchBtn.addEventListener("click", filterSearch);
 let arrayFilterRecipes = [];
 
 function filterSearch() {
-   // Je récupère la valeur saisie dans l'input et je le mets en minuscules
+   // Je récupère la valeur saisie dans l'input et je le stocke
    valueSearch = searchForm.value.toLowerCase();
+   localStorage.setItem("valueSearch", JSON.stringify(valueSearch));
 
    // Je calcule la longueur de la valeur saisie
    nbCaracteres = valueSearch.length;
@@ -34,18 +35,19 @@ function filterSearch() {
       arrayFilterRecipes = [];
    }
 }
-
 function filterRecipes(valueSearch) {
-   const wordToFind = valueSearch;
+   // const wordToFind = valueSearch;
+   const wordToFind = new RegExp("\\b" + valueSearch + "\\b", "gi");
+
    // Je réinitialise mon tableau de recettes filtrées à 0
    arrayFilterRecipes = [];
 
    for (let i = 0; i < recipes.length; i++) {
       //Je recherche le mot dans le titre
-      if (recipes[i].name.toLowerCase().indexOf(wordToFind) !== -1) {
+      if (wordToFind.test(recipes[i].name)) {
          arrayFilterRecipes.push(recipes[i]);
          // Je recherche le mot dans la description
-      } else if (recipes[i].description.toLowerCase().indexOf(wordToFind) !== -1) {
+      } else if (wordToFind.test(recipes[i].description)) {
          arrayFilterRecipes.push(recipes[i]);
       }
    }
@@ -53,7 +55,7 @@ function filterRecipes(valueSearch) {
    // Je recherche le mot dans les ingrédients
    for (let i = 0; i < recipes.length; i++) {
       for (let j = 0; j < recipes[i].ingredients.length; j++) {
-         if (recipes[i].ingredients[j].ingredient.toLowerCase().indexOf(wordToFind) !== -1) {
+         if (wordToFind.test(recipes[i].ingredients[j].ingredient)) {
             arrayFilterRecipes.push(recipes[i]);
             break;
          }
