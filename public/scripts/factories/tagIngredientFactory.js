@@ -9,7 +9,6 @@ function tagIngredientFactory(datas) {
       buttonTagIngredient.textContent = currentIngredient;
       buttonTagIngredient.setAttribute("type", "button");
       buttonTagIngredient.setAttribute("style", "text-transform : capitalize");
-      buttonTagIngredient.setAttribute("id", currentIngredient);
 
       // Création span contenant icon close
       const spanIconClose = document.createElement("span");
