@@ -36,7 +36,6 @@ function filterSearch() {
    }
 }
 function filterRecipes(valueSearch) {
-   // const wordToFind = valueSearch;
    const wordToFind = new RegExp("\\b" + valueSearch + "\\b", "gi");
 
    // Je réinitialise mon tableau de recettes filtrées à 0
