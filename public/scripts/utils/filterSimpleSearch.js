@@ -11,17 +11,22 @@ let arrayFilterRecipes = [];
 function filterSearch() {
    // Je récupère la valeur saisie dans l'input et je le stocke
    valueSearch = searchForm.value.toLowerCase();
-   localStorage.setItem("valueSearch", JSON.stringify(valueSearch));
+   console.log(valueSearch);
+   // localStorage.setItem("valueSearch", "");
+
 
    // Je calcule la longueur de la valeur saisie
    nbCaracteres = valueSearch.length;
 
    if (nbCaracteres >= 3) {
       filterRecipes(valueSearch);
+      localStorage.setItem("valueSearch", JSON.stringify(valueSearch));
    } else if (nbCaracteres > 0 && nbCaracteres < 3) {
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
       searchContainer.setAttribute("data-error-visible", "true");
+      console.log(valueSearch.length);
+      localStorage.setItem("valueSearch", "");
    } else if (nbCaracteres === 0) {
       displayData(recipes);
       displayListIngredient(recipes);
@@ -35,6 +40,8 @@ function filterSearch() {
       searchContainer.setAttribute("data-error-visible", "true");
       // Je réinitialise mon tableau de recettes filtrées à 0
       arrayFilterRecipes = [];
+      console.log(valueSearch.length);
+      localStorage.setItem("valueSearch", "");
    }
 }
 

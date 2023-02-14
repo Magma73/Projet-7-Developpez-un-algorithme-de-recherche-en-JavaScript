@@ -65,6 +65,7 @@ function filterRecipesAdvanced() {
    }
 
    // Je stocke mon tableau arrayAdvancedFilterRecipes
+   // localStorage.clear();
    localStorage.setItem("arrayAdvancedFilterRecipes", JSON.stringify(arrayAdvancedFilterRecipes));
 
    // J'appelle les fonctions de création des recettes, des boutons ingrédients, appareils et ustensiles
