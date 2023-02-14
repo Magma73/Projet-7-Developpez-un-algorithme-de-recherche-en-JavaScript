@@ -1,11 +1,9 @@
-// Je créé les constantes des inputs ingrédients, appareils et ustensiles
 const searchForm = document.querySelector("#search-input");
 const searchBtn = document.querySelector("#search-addon");
 const searchContainer = document.querySelector(".search-container");
 
 // J'appelle la fonction filterSearch au clic sur la loupe
 searchBtn.addEventListener("click", filterSearch);
-//J'initialise le tableau arrayFilterRecipes
 let arrayFilterRecipes = [];
 
 function filterSearch() {
@@ -23,7 +21,7 @@ function filterSearch() {
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
       searchContainer.setAttribute("data-error-visible", "true");
-      // Je réinitialise la valeur saisie dans le local storage
+      // Je réinitialise la valeur dans le local storage
       localStorage.setItem("valueSearch", "");
    } else if (nbCaracteres === 0) {
       displayData(recipes);
@@ -38,47 +36,64 @@ function filterSearch() {
       searchContainer.setAttribute("data-error-visible", "true");
       // Je réinitialise mon tableau de recettes filtrées à 0
       arrayFilterRecipes = [];
-      // Je réinitialise la valeur saisie dans le local storage
+      // Je réinitialise la valeur dans le local storage
       localStorage.setItem("valueSearch", "");
    }
 }
-
-const filterRecipes = (valueSearch) => {
+function filterRecipes(valueSearch) {
    const wordToFind = new RegExp("\\b" + valueSearch + "\\b", "gi");
+
    // Je réinitialise mon tableau de recettes filtrées à 0
    arrayFilterRecipes = [];
 
-   arrayFilterRecipes = recipes.filter((recipe) => {
-      // Je teste chaque recette
-
-      return (
-         //Je recherche le mot dans le titre
-         recipe.name.match(wordToFind) ||
-         // Je recherche le mot dans les ingrédients
-         recipe.ingredients.some((ingredient) => ingredient.ingredient.match(wordToFind)) ||
+   for (let i = 0; i < recipes.length; i++) {
+      //Je recherche le mot dans le titre
+      if (wordToFind.test(recipes[i].name)) {
+         arrayFilterRecipes.push(recipes[i]);
          // Je recherche le mot dans la description
-         recipe.description.match(wordToFind)
-      );
-   });
+      } else if (wordToFind.test(recipes[i].description)) {
+         arrayFilterRecipes.push(recipes[i]);
+      }
+   }
+
+   // Je recherche le mot dans les ingrédients
+   for (let i = 0; i < recipes.length; i++) {
+      for (let j = 0; j < recipes[i].ingredients.length; j++) {
+         if (wordToFind.test(recipes[i].ingredients[j].ingredient)) {
+            arrayFilterRecipes.push(recipes[i]);
+            break;
+         }
+      }
+   }
+
+   // Je supprime les doublons du tableau
+   for (let x = 0; x < arrayFilterRecipes.length; x++) {
+      for (let y = x + 1; y < arrayFilterRecipes.length; y++) {
+         if (arrayFilterRecipes[x] === arrayFilterRecipes[y]) {
+            arrayFilterRecipes.splice(y, 1);
+            y--;
+         }
+      }
+   }
 
    // J'appelle les fonctions de création des recettes filtrées et des listes ingrédients, appareils et ustensiles
    displayDataSimpleFilter(arrayFilterRecipes);
    displayListIngredientSimpleFilter(arrayFilterRecipes);
    displayListApplianceSimpleFilter(arrayFilterRecipes);
    displayListUstensilSimpleFilter(arrayFilterRecipes);
-
-   // J'appelle les fonctions de création des tags
    eventCreateTagIngredient();
    eventCreateTagAppliance();
    eventCreateTagUstensil();
 
+   // J'affiche un message d'erreur si aucune recette ne correspond
    if (arrayFilterRecipes.length === 0) {
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", 'Aucune recette ne correspond à votre critère...Vous pouvez chercher "tarte aux pommes", "poisson", etc.');
       searchContainer.setAttribute("data-error-visible", "true");
+      console.log("Aucune recette ne correspond à votre critère");
    } else {
       //Je n'affiche pas le message d'erreur
       searchContainer.setAttribute("data-error", "");
       searchContainer.setAttribute("data-error-visible", "");
    }
-};
+}
