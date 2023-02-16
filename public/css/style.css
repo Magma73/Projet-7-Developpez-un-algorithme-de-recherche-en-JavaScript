@@ -44,10 +44,12 @@
   align-items: center;
   width: 100%;
   padding: 20px 24px 0 19px;
-  /* text-align: left; */
   color: rgba(255, 255, 255, 0.5);
   border: none;
   border-radius: 5px 5px 0 0;
+}
+.button__hidden::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 .button__hidden--ingredient {
   background: #3282f7;
