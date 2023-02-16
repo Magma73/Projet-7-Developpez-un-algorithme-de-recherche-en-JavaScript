@@ -45,6 +45,7 @@
   align-items: center;
   width: 100%;
   padding: 20px 24px 10px 19px;
+  color: rgba(255, 255, 255, 0.5);
   border: none;
   border-radius: 5px 5px 0 0;
 }
