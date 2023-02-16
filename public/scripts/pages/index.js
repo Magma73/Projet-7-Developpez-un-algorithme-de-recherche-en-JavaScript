@@ -363,6 +363,19 @@ async function init() {
    eventCreateTagIngredient();
    eventCreateTagAppliance();
    eventCreateTagUstensil();
+
+   // Je réinitialise le local storage lorsque je rafraîchis la page
+   window.addEventListener("beforeunload", function () {
+      localStorage.setItem("isReloading", "true");
+   });
+
+   window.addEventListener("load", function () {
+      var isReloading = localStorage.getItem("isReloading");
+      if (isReloading) {
+         localStorage.clear();
+         localStorage.setItem("isReloading", "");
+      }
+   });
 }
 
 init();
