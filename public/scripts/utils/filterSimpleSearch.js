@@ -1,10 +1,9 @@
 const searchForm = document.querySelector("#search-input");
-// const searchBtn = document.querySelector("#search-addon");
+
 const searchContainer = document.querySelector(".search-container");
 
 searchForm.addEventListener("input", function () {
    search = this.value;
-   console.log(search);
    filterSearch();
 });
 
