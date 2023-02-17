@@ -1,17 +1,21 @@
 const searchForm = document.querySelector("#search-input");
-const searchBtn = document.querySelector("#search-addon");
+// const searchBtn = document.querySelector("#search-addon");
 const searchContainer = document.querySelector(".search-container");
 
-// J'appelle la fonction filterSearch au clic sur la loupe
-searchBtn.addEventListener("click", filterSearch);
+searchForm.addEventListener("input", function () {
+   search = this.value;
+   console.log(search);
+   filterSearch();
+});
+
 let arrayFilterRecipes = [];
 
 function filterSearch() {
    // Je récupère la valeur saisie dans l'input et je le stocke
-   valueSearch = searchForm.value.toLowerCase();
+   const valueSearch = search.toLowerCase();
 
    // Je calcule la longueur de la valeur saisie
-   nbCaracteres = valueSearch.length;
+   let nbCaracteres = valueSearch.length;
 
    if (nbCaracteres >= 3) {
       filterRecipes(valueSearch);
