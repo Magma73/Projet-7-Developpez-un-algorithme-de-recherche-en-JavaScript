@@ -1,5 +1,4 @@
 const searchForm = document.querySelector("#search-input");
-
 const searchContainer = document.querySelector(".search-container");
 
 searchForm.addEventListener("input", function () {
