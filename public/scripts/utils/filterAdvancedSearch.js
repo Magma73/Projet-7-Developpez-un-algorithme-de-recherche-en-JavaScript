@@ -9,16 +9,19 @@ let searchValueUstensil = "";
 searchInputIngredient.addEventListener("input", function () {
    searchValueIngredient = this.value;
    filterRecipesAdvanced();
+   filterRecipesTags();
 });
 
 searchInputAppareil.addEventListener("input", function () {
    searchValueAppareil = this.value;
    filterRecipesAdvanced();
+   filterRecipesTags();
 });
 
 searchInputUstensil.addEventListener("input", function () {
    searchValueUstensil = this.value;
    filterRecipesAdvanced();
+   filterRecipesTags();
 });
 
 // J'initialise mon tableau arrayAdvancedFilterRecipes

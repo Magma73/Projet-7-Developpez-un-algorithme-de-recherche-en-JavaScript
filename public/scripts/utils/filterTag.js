@@ -1,6 +1,6 @@
 function filterRecipesTags() {
    // Je récupère la valeur saisie dans la recherche simple
-   const valueSearchStored = localStorage.getItem("valueSearch");
+   const valueSearchStored = localStorage.getItem("search");
    const valueSearch = valueSearchStored || "";
    let valueSearchLength = valueSearch.length;
 
