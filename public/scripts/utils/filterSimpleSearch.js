@@ -12,13 +12,17 @@ let arrayFilterRecipes = [];
 
 function filterSearch() {
    // Je récupère la valeur saisie dans l'input et je le stocke
-   const valueSearch = search.toLowerCase();
+   // const valueSearch = search.toLowerCase();
+   const valueSearch = search;
 
    // Je calcule la longueur de la valeur saisie
    let nbCaracteres = valueSearch.length;
 
    if (nbCaracteres >= 3) {
       console.log("nb caracteres >=3");
+            // Je crée l'expression régulière pour le mot entier insensible à la casse
+   //   const regex = new RegExp("\\b" + valueSearch + "\\b", "i");
+   //   console.log(regex);
       filterRecipes(valueSearch);
       // Je stocke la valeur saisie dans le local storage
       localStorage.setItem("search", JSON.stringify(search));
@@ -51,45 +55,17 @@ function filterSearch() {
    }
 }
 
-// function filterRecipes(valueSearch) {
-//    const wordToFind = valueSearch;
-//    // const wordToFind = new RegExp("\\b" + valueSearch + "\\b", "gi");
-//    // Je réinitialise mon tableau de recettes filtrées à 0
-//    arrayFilterRecipes = [];
-
-//    for (let i = 0; i < recipes.length; i++) {
-//       //Je recherche le mot dans le titre
-//       if (wordToFind.test(recipes[i].name)) {
-//          arrayFilterRecipes.push(recipes[i]);
-//          // Je recherche le mot dans la description
-//       } else if (wordToFind.test(recipes[i].description)) {
-//          arrayFilterRecipes.push(recipes[i]);
-//       }
-//    }
-
-//    // Je recherche le mot dans les ingrédients
-//    for (let i = 0; i < recipes.length; i++) {
-//       for (let j = 0; j < recipes[i].ingredients.length; j++) {
-//          if (wordToFind.test(recipes[i].ingredients[j].ingredient)) {
-//             arrayFilterRecipes.push(recipes[i]);
-//             break;
-//          }
-//       }
-//    }
-
-//    // Je supprime les doublons du tableau
-//    for (let x = 0; x < arrayFilterRecipes.length; x++) {
-//       for (let y = x + 1; y < arrayFilterRecipes.length; y++) {
-//          if (arrayFilterRecipes[x] === arrayFilterRecipes[y]) {
-//             arrayFilterRecipes.splice(y, 1);
-//             y--;
-//          }
-//       }
-//    }
-
-
 function filterRecipes(valueSearch) {
-   const wordToFind = valueSearch;
+   // if (regex !== null){
+      // Je crée l'expression régulière pour le mot entier insensible à la casse
+   //   const regex = new RegExp("\\b" + valueSearch + "\\b", "i");
+   //   console.log(regex);
+   //    wordToFind = regex;
+   //    console.log("Regex : ", wordToFind);
+   // } else {
+      wordToFind = valueSearch;
+      console.log("valueSearch :", wordToFind);
+   // }
    console.log(wordToFind);
    // const wordToFind = new RegExp("\\b" + valueSearch + "\\b", "gi");
    // Je réinitialise mon tableau de recettes filtrées à 0
