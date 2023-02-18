@@ -5,7 +5,7 @@ searchForm.addEventListener("input", function () {
    search = this.value;
    console.log(search);
    filterSearch();
-   // filterRecipesTags();
+   filterRecipesTags();
 });
 
 let arrayFilterRecipes = [];
