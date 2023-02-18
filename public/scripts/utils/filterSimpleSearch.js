@@ -6,7 +6,6 @@ searchForm.addEventListener("input", function () {
    console.log(search);
    filterSearch();
    filterRecipesTags();
-   // localStorage.setItem("search", JSON.stringify(search));
 });
 
 //J'initialise le tableau arrayFilterRecipes
@@ -23,42 +22,26 @@ function filterSearch() {
       console.log("nb caracteres >=3");
       filterRecipes(valueSearch);
       // Je stocke la valeur saisie dans le local storage
-      // localStorage.setItem("valueSearch", JSON.stringify(valueSearch));
       localStorage.setItem("search", JSON.stringify(search));
    } else if (nbCaracteres > 0 && nbCaracteres < 3) {
       // J'affiche le message d'erreur
-      console.log("nbCaracteres > 0 && nbCaracteres < 3");
-
       searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
       searchContainer.setAttribute("data-error-visible", "true");
       // Je réinitialise la valeur dans le local storage
       // localStorage.setItem("valueSearch", "");
       localStorage.setItem("search", "");
    } else if (nbCaracteres === 0) {
-      console.log("nbCaracteres === 0");
-      // displayData(recipes);
-      // displayListIngredient(recipes);
-      // displayListAppliance(recipes);
-      // displayListUstensil(recipes);
-      // eventCreateTagIngredient();
-      // eventCreateTagAppliance();
-      // eventCreateTagUstensil();
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
       searchContainer.setAttribute("data-error-visible", "true");
       // Je réinitialise mon tableau de recettes filtrées à 0
       arrayFilterRecipes = [];
       // Je réinitialise la valeur dans le local storage
-      // localStorage.setItem("valueSearch", "");
       localStorage.setItem("search", "");
-
    }
 }
 
 const filterRecipes = (valueSearch) => {
-   // const wordToFind = new RegExp("\\b" + valueSearch + "\\b", "gi");
-   // const wordToFind = new RegExp("\\b" + valueSearch, "i");
-
    const wordToFind = valueSearch;
 
    // Je réinitialise mon tableau de recettes filtrées à 0
@@ -76,8 +59,6 @@ const filterRecipes = (valueSearch) => {
          recipe.description.match(wordToFind)
       );
    });
-
-
 
    // J'appelle les fonctions de création des recettes filtrées et des listes ingrédients, appareils et ustensiles
    displayDataSimpleFilter(arrayFilterRecipes);
