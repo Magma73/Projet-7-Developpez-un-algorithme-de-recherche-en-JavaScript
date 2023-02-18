@@ -151,7 +151,6 @@ async function displayListIngredientAdvancedFilter(arrayAdvancedFilterRecipes, s
    const wrapperListIngredient = document.querySelector(".wrapper__list--ingredient");
    wrapperListIngredient.innerHTML = "";
    const wordToFind = searchValueIngredient;
-   console.log(wordToFind);
 
    // Je modifie le tableau d'objets ingrédients afin de supprimer les doublons
    const arrayFilterIngredients = arrayAdvancedFilterRecipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
