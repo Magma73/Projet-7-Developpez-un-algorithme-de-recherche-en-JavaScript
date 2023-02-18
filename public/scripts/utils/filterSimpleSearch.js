@@ -3,8 +3,8 @@ const searchContainer = document.querySelector(".search-container");
 
 searchForm.addEventListener("input", function () {
    search = this.value;
-   console.log(search);
    filterSearch();
+   filterRecipesAdvanced();
    filterRecipesTags();
 });
 
@@ -12,17 +12,12 @@ let arrayFilterRecipes = [];
 
 function filterSearch() {
    // Je récupère la valeur saisie dans l'input et je le stocke
-   // const valueSearch = search.toLowerCase();
    const valueSearch = search;
 
    // Je calcule la longueur de la valeur saisie
    let nbCaracteres = valueSearch.length;
 
    if (nbCaracteres >= 3) {
-      console.log("nb caracteres >=3");
-            // Je crée l'expression régulière pour le mot entier insensible à la casse
-   //   const regex = new RegExp("\\b" + valueSearch + "\\b", "i");
-   //   console.log(regex);
       filterRecipes(valueSearch);
       // Je stocke la valeur saisie dans le local storage
       localStorage.setItem("search", JSON.stringify(search));
@@ -31,43 +26,20 @@ function filterSearch() {
       searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
       searchContainer.setAttribute("data-error-visible", "true");
       // Je réinitialise la valeur dans le local storage
-      // localStorage.setItem("valueSearch", "");
-      // filterRecipesTags();
       localStorage.setItem("search", "");
    } else if (nbCaracteres === 0) {
-      console.log("nbCaracteres === 0");
-      // displayData(recipes);
-      // displayListIngredient(recipes);
-      // displayListAppliance(recipes);
-      // displayListUstensil(recipes);
-      eventCreateTagIngredient();
-      eventCreateTagAppliance();
-      eventCreateTagUstensil();
-
       // J'affiche le message d'erreur
       searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
       searchContainer.setAttribute("data-error-visible", "true");
       // Je réinitialise mon tableau de recettes filtrées à 0
       arrayFilterRecipes = [];
-      // filterRecipesTags();
       // Je réinitialise la valeur dans le local storage
       localStorage.setItem("search", "");
    }
 }
 
 function filterRecipes(valueSearch) {
-   // if (regex !== null){
-      // Je crée l'expression régulière pour le mot entier insensible à la casse
-   //   const regex = new RegExp("\\b" + valueSearch + "\\b", "i");
-   //   console.log(regex);
-   //    wordToFind = regex;
-   //    console.log("Regex : ", wordToFind);
-   // } else {
-      wordToFind = valueSearch;
-      console.log("valueSearch :", wordToFind);
-   // }
-   console.log(wordToFind);
-   // const wordToFind = new RegExp("\\b" + valueSearch + "\\b", "gi");
+   wordToFind = valueSearch;
    // Je réinitialise mon tableau de recettes filtrées à 0
    arrayFilterRecipes = [];
 
@@ -99,8 +71,6 @@ function filterRecipes(valueSearch) {
          }
       }
    }
-   console.log(arrayFilterRecipes);
-
 
    // J'appelle les fonctions de création des recettes filtrées et des listes ingrédients, appareils et ustensiles
    displayDataSimpleFilter(arrayFilterRecipes);
