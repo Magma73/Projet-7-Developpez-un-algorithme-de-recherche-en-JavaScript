@@ -2,7 +2,6 @@ function filterRecipesTags() {
    // Je récupère la valeur saisie dans la recherche simple
    // const valueSearchStored = localStorage.getItem("valueSearch");
    const valueSearchStored = localStorage.getItem("search");
-   console.log(valueSearchStored);
 
    const valueSearch = valueSearchStored || "";
    let valueSearchLength = valueSearch.length;
@@ -17,14 +16,9 @@ function filterRecipesTags() {
    // Je récupère le tableau storé des recettes filtrées par la recherche avancée
    const storedArrayAdvancedFilterRecipes = localStorage.getItem("arrayAdvancedFilterRecipes");
    const arrayAdvancedFilterRecipesStored = JSON.parse(storedArrayAdvancedFilterRecipes);
-   console.log(arrayAdvancedFilterRecipesStored);
 
    // J'initialise le tableau arrayAdvancedFilterRecipes
    let arrayAdvancedFilterRecipes = [];
-
-   console.log(selectedTagsIngredients);
-   console.log(selectedTagsAppliance);
-   console.log(selectedTagsUstensil);
 
    // Si la recherche simple utilisée et qu'au moins un des champs de la recherche avancée utilisé, alors j'utilise le tableau storé : recherche simple + recherche avancée
    if (valueSearchLength !== 0 && (searchValueIngredient.length !== 0 || searchValueAppareil.length !== 0 || searchValueUstensil.length !== 0)) {

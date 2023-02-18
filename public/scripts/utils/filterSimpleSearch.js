@@ -3,8 +3,8 @@ const searchContainer = document.querySelector(".search-container");
 
 searchForm.addEventListener("input", function () {
    search = this.value;
-   console.log(search);
    filterSearch();
+   filterRecipesAdvanced();
    filterRecipesTags();
 });
 
@@ -19,7 +19,6 @@ function filterSearch() {
    let nbCaracteres = valueSearch.length;
 
    if (nbCaracteres >= 3) {
-      console.log("nb caracteres >=3");
       filterRecipes(valueSearch);
       // Je stocke la valeur saisie dans le local storage
       localStorage.setItem("search", JSON.stringify(search));
@@ -28,7 +27,6 @@ function filterSearch() {
       searchContainer.setAttribute("data-error", "Veuillez entrer plus de 3 caractères.");
       searchContainer.setAttribute("data-error-visible", "true");
       // Je réinitialise la valeur dans le local storage
-      // localStorage.setItem("valueSearch", "");
       localStorage.setItem("search", "");
    } else if (nbCaracteres === 0) {
       // J'affiche le message d'erreur
@@ -42,8 +40,8 @@ function filterSearch() {
 }
 
 const filterRecipes = (valueSearch) => {
-   const wordToFind = valueSearch;
-
+   const wordToFind = valueSearch.toLowerCase();
+   console.log(wordToFind);
    // Je réinitialise mon tableau de recettes filtrées à 0
    arrayFilterRecipes = [];
 
@@ -52,11 +50,11 @@ const filterRecipes = (valueSearch) => {
 
       return (
          //Je recherche le mot dans le titre
-         recipe.name.match(wordToFind) ||
+         recipe.name.toLowerCase().includes(wordToFind) ||
          // Je recherche le mot dans les ingrédients
-         recipe.ingredients.some((ingredient) => ingredient.ingredient.match(wordToFind)) ||
+         recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(wordToFind.toLowerCase())) ||
          // Je recherche le mot dans la description
-         recipe.description.match(wordToFind)
+         recipe.description.toLowerCase().includes(wordToFind)
       );
    });
 
