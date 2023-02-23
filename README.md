@@ -30,7 +30,7 @@ La base des maquettes a été créée via [Figma](https://www.figma.com/file/xqe
 ### Page avec recherche simple et recherche avancée
 ![Maquette Les Petits Plats - Recherche simple et recherche avancée](/public/assets/maquettes/Les-petits-plats-Recherche-simple-Recherche-avancee.png)
 
-### Page avec recherche tag
+### Page avec recherche par tag
 ![Maquette Les Petits Plats - Recherche par tag](/public/assets/maquettes/Les-petits-plats-Recherche-tag.png)
 
 
@@ -71,7 +71,7 @@ La base des maquettes a été créée via [Figma](https://www.figma.com/file/xqe
     * Validation W3C HTML et CSS : à passer
     * Pas d'erreur dans la console
 
-**Fiche d'investigation :**
+## Fiche d'investigation
 La fiche d'investigation de la fonctionnalité de recherche simple a permis de planifier 2 versions de la fonctionnalité :
 * Un algorithme 1 : une version en programmation fonctionnelle avec les méthodes de l'objet array (foreach, filter, map, reduce)
 * Un algorithme 2 : une version utilisant les boucles natives (while, for...)
