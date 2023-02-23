@@ -15,7 +15,6 @@ La mission était d'implémenter la fonctionnalité de recherche :
 * Github et github pages : versionner le code et avoir une version en ligne
 * Prettier : mettre en forme le code
 * ESLint : garantir que le code est robuste
-* [Regex101.com](https://regex101.com/) : générer des regex
 * [JSBench.me](https://jsbench.me/) : comparer la performance des algorithmes
 
 ## Maquettes à respecter
